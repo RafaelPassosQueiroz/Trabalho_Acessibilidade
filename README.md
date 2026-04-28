@@ -9,12 +9,11 @@ quais são os principais obstáculos enfrentados por usuários com diferentes ne
 
 # O que descobrimos
 ## O que descobrimos (Principais Achados)
-
-* A análise revelou que grande parte dos sites do grupo J&F e da JBS apresenta falhas recorrentes de acessibilidade, como baixo contraste de cores e ausência de textos alternativos em imagens, comprometendo a experiência de usuários com deficiência visual (Fonte: WAVE).
-* Foi identificado um alto número de erros estruturais, incluindo problemas de hierarquia de headings e uso inadequado de atributos ARIA, o que dificulta a navegação por leitores de tela (Fonte: Lighthouse).
-* A pontuação geral de acessibilidade dos sites analisados foi baixa, indicando que as plataformas não seguem adequadamente as diretrizes recomendadas pelas WCAG (Fonte: Lighthouse).
-* Durante a pesquisa, foram exploradas ferramentas assistivas como o VoiceOver, evidenciando na prática as dificuldades enfrentadas por usuários que dependem de leitores de tela para navegação.
-* Observou-se que muitos dos problemas encontrados poderiam ser corrigidos com boas práticas simples de desenvolvimento, como uso correto de HTML semântico, descrição adequada de imagens e ajustes de contraste, reforçando a importância de testes contínuos com ferramentas como o WAVE e o Lighthouse.
+- Sites do grupo J&F e da JBS apresentam muitos problemas de acessibilidade, como baixo contraste e falta de alt em imagens (Fonte: WAVE).
+- Foram encontrados erros estruturais (headings e ARIA), dificultando navegação por leitores de tela (Fonte: Lighthouse).
+- A pontuação de acessibilidade geral foi baixa, indicando não conformidade com boas práticas (Fonte: Lighthouse).
+- Testes com VoiceOver mostraram dificuldades reais para usuários com deficiência visual.
+- Muitos problemas poderiam ser evitados com práticas básicas e testes contínuos (Fonte: WAVE).
 
 
 
