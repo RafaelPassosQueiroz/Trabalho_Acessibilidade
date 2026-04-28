@@ -1,4 +1,7 @@
 # Projeto de Pesquisa - Acessibilidade
+
+
+# Relatório WAVE - Banco Original
 O relatório do WAVE evidencia diversos problemas de acessibilidade, com destaque para erros de contraste e ausência de textos alternativos. O erro de **“Very low contrast (1:1)”** ocorre quando a cor do texto e do fundo possuem luminância muito semelhante, dificultando ou impossibilitando a leitura, especialmente para usuários com deficiência visual. Tecnicamente, isso viola as diretrizes da WCAG, que exigem uma taxa mínima de contraste de 4.5:1 para textos normais. A correção consiste em ajustar as cores via CSS, utilizando combinações com maior contraste (por exemplo, texto claro sobre fundo escuro ou vice-versa), podendo validar com ferramentas como contrast checkers.
 
 Outro erro crítico é o **“Missing alternative text”**, que indica que imagens não possuem o atributo `alt`. Isso impede que leitores de tela interpretem o conteúdo visual. A solução é adicionar descrições significativas no atributo `alt` das tags `<img>`, ou `alt=` quando a imagem for apenas decorativa.
