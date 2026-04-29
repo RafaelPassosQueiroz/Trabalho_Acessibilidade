@@ -1,6 +1,35 @@
 # Projeto de Pesquisa - Acessibilidade
+=======
+# Sobre esta pesquisa
 
-### Lighthouse
+Esta pesquisa investiga a acessibilidade em sites e sistemas web, tendo como foco a análise do site do banco Original. A partir 
+do uso das ferramentas WAVE e Lighthouse, busca-se responder em que medida a plataforma atende às diretrizes de acessibilidade e 
+quais são os principais obstáculos enfrentados por usuários com diferentes necessidades.
+
+
+# O que descobrimos
+## O que descobrimos (Principais Achados)
+- Sites do grupo J&F e da JBS apresentam muitos problemas de acessibilidade, como baixo contraste e falta de alt em imagens (Fonte: WAVE).
+- Foram encontrados erros estruturais (headings e ARIA), dificultando navegação por leitores de tela (Fonte: Lighthouse).
+- A pontuação de acessibilidade geral foi baixa, indicando não conformidade com boas práticas (Fonte: Lighthouse).
+- Testes com VoiceOver mostraram dificuldades reais para usuários com deficiência visual.
+- Muitos problemas poderiam ser evitados com práticas básicas e testes contínuos (Fonte: WAVE).
+
+
+
+
+## Relatório WAVE - Banco Original
+O relatório do WAVE evidencia diversos problemas de acessibilidade, com destaque para erros de contraste e ausência de textos alternativos. O erro de **“Very low contrast (1:1)”** ocorre quando a cor do texto e do fundo possuem luminância muito semelhante, dificultando ou impossibilitando a leitura, especialmente para usuários com deficiência visual. Tecnicamente, isso viola as diretrizes da WCAG, que exigem uma taxa mínima de contraste de 4.5:1 para textos normais. A correção consiste em ajustar as cores via CSS, utilizando combinações com maior contraste (por exemplo, texto claro sobre fundo escuro ou vice-versa), podendo validar com ferramentas como contrast checkers.
+
+Outro erro crítico é o **“Missing alternative text”**, que indica que imagens não possuem o atributo `alt`. Isso impede que leitores de tela interpretem o conteúdo visual. A solução é adicionar descrições significativas no atributo `alt` das tags `<img>`, ou `alt=` quando a imagem for apenas decorativa.
+
+Também foram identificados problemas de **referências ARIA quebradas**, que ocorrem quando atributos como `aria-labelledby` ou `aria-describedby` apontam para IDs inexistentes. A correção exige garantir que todos os IDs referenciados existam no DOM e estejam corretamente associados.
+
+Além disso, há alertas como **níveis de heading pulados**, prejudicando a hierarquia semântica da página. O ideal é seguir uma ordem lógica (`h1` → `h2` → `h3`...). No geral, esses erros reduzem o AIM Score (1.9/10) e impactam diretamente a usabilidade e acessibilidade, sendo corrigidos com boas práticas de HTML semântico, CSS acessível e validação contínua.
+
+
+## Relatório LightHouse - Banco Original
+
 O lighthouse é uma ferramenta do google que avalia o aplicativo em duas partes: 
 - A experiência do usuário (Core Web Vitals):
     O Core Web Vitals é um conjunto de métricas que avaliam a experiência do usuário quanto a seu site. Ele possui muito ênfase na avaliação do lighthouse, porque no "laboratório", que é a avaliação do lighthouse, o aplicativo faz um experimento prevendo uma avaliação geral do seu site, e nada mais plausível usando avaliações de usuários reais a outras páginas. Ela não pode ser aplicada sempre porque exige tempo e várias resposta de usuários o que impediria de avaliar todos os sites
@@ -32,10 +61,5 @@ Avaliação:
 Como melhorar sua avaliação:
     O lighthouse devolve a avaliação das métricas mais importantes das categorias, e é a partir dessas devoluções que você, como desenvolvedor , analisa e otimiza no seu site.
 
-Links:
-https://neilpatel.com/br/blog/google-lighthouse/
->https://www.youtube.com/watch?v=4PIFK_aTHys
->https://www.youtube.com/watch?v=9kzHrOpyElI
->https://developer.chrome.com/docs/lighthouse/performance/performance-scoring?utm_source=lighthouse&utm_medium=lr&hl=pt-br
->https://developers.google.com/search/docs/appearance/core-web-vitals?hl=pt-br#:~:text=O%20Core%20Web%20Vitals%20%C3%A9%20um%20conjunto,interatividade%20e%20%C3%A0%20estabilidade%20visual%20da%20p%C3%A1gina.
->https://developer.mozilla.org/pt-BR/docs/Web/Accessibility/ARIA
+
+
