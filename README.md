@@ -31,3 +31,13 @@ Além disso, há alertas como **níveis de heading pulados**, prejudicando a hie
 ## Relatório LightHouse - Banco Original
 
 Parte do Edu
+
+
+
+## Principais fontes usadas
+
+- WebAIM. WebAIM Million Report. 2024. https://webaim.org/projects/million/
+- Deque Systems. axe-core Documentation. s.d. https://github.com/dequelabs/axe-core
+- Google. Lighthouse: Accessibility Audit Documentation. s.d. https://developer.chrome.com/docs/lighthouse/accessibility/
+- NV Access. NVDA Screen Reader. s.d. https://www.nvaccess.org/
+- Banco Original. Landing Page Banco Original. s.d. https://www.original.com.br/
