@@ -1,5 +1,4 @@
 # Projeto de Pesquisa - Acessibilidade
-=======
 # Sobre esta pesquisa
 
 Esta pesquisa investiga a acessibilidade em sites e sistemas web, tendo como foco a análise do site do banco Original. A partir 
@@ -60,6 +59,3 @@ Avaliação:
 
 Como melhorar sua avaliação:
     O lighthouse devolve a avaliação das métricas mais importantes das categorias, e é a partir dessas devoluções que você, como desenvolvedor , analisa e otimiza no seu site.
-
-
-
