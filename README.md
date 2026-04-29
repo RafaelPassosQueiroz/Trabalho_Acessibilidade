@@ -1,4 +1,4 @@
-# Pesquisa de Acessibilidade Digital — Dimensão A: Ferramentas de Teste e Diagnóstico
+# Pesquisa de Acessibilidade Digital — Ferramentas de Teste e Diagnóstico
 
 ## Sobre esta pesquisa
 
