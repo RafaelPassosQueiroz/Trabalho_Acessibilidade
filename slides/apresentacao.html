@@ -1,1 +1,620 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="apresentacao.css">
+  <script type="module" src="apresentacao.js"></script>
+<title>Acessibilidade Digital — Dimensão A</title>
 
+</head>
+<body>
+
+  <div class="particles-container" id="particles"></div>
+  <div class="progress-bar" id="progress"></div>
+  <div class="slide-counter" id="counter"></div>
+  <div class="nav-dots" id="navDots"></div>
+  <div class="kb-hint" style="display:none;"></div>
+
+  <div class="deck" id="deck">
+
+    <!-- ===== SLIDE 0: COVER ===== -->
+    <section class="slide active" data-bg="cover">
+      <div class="wcag-badge reveal"><span class="dot"></span> Dimensão A — Ferramentas de Teste e Diagnóstico</div>
+      <h1 class="slide-title text-center reveal reveal-d1">
+        A web foi construída<br>para <span class="gradient-text">todos</span>?
+      </h1>
+      <p class="slide-subtitle reveal reveal-d2">
+        Como desenvolvedores descobrem, medem e corrigem falhas de acessibilidade — e por que 95.9% dos sites ainda falham.
+      </p>
+      <p class="small-text mt-3 reveal reveal-d3">Rafael Passos · Eduardo Passos · Davi Lacerda · João Prado</p>
+    </section>
+
+    <!-- ===== SLIDE 1: HOOK — O NÚMERO ===== -->
+    <section class="slide">
+      <div class="big-number red reveal counter" data-target="95.9" data-suffix="%">0%</div>
+      <p class="stat-label reveal reveal-d1">dos 1 milhão de sites mais visitados do mundo<br>têm falhas detectáveis de acessibilidade.</p>
+      <p class="source reveal reveal-d2">WebAIM Million Report, Fev. 2026 — webaim.org/projects/million</p>
+    </section>
+
+    <!-- ===== SLIDE 2: CONTEXTO — QUEM É AFETADO ===== -->
+    <section class="slide">
+      <h2 class="slide-title text-center reveal">Isso não é abstrato.<br>São <span class="gradient-text">1.3 bilhão</span> de pessoas.</h2>
+      <div class="three-cols mt-3">
+        <div class="card reveal reveal-d1">
+          <div class="card-icon">🌍</div>
+          <h3>16% da população mundial</h3>
+          <p>Vivem com alguma forma de deficiência. É o maior grupo minoritário do planeta.</p>
+          <p class="source">OMS, 2024</p>
+        </div>
+        <div class="card reveal reveal-d2">
+          <div class="card-icon">🇧🇷</div>
+          <h3>18.6 milhões no Brasil</h3>
+          <p>8.9% da população tem algum tipo de deficiência. A visual é a mais prevalente.</p>
+          <p class="source">IBGE Censo 2022</p>
+        </div>
+        <div class="card reveal reveal-d3">
+          <div class="card-icon">⚖️</div>
+          <h3>Lei 13.146/2015 (LBI)</h3>
+          <p>Acessibilidade digital é obrigatória no Brasil. Sites públicos devem seguir o e-MAG.</p>
+          <p class="source">Lei Brasileira de Inclusão</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 3: OS 6 ERROS MAIS COMUNS ===== -->
+    <section class="slide">
+      <h2 class="slide-title text-center reveal">Os mesmos 6 erros.<br><span class="gradient-text">7 anos seguidos.</span></h2>
+      <p class="slide-subtitle reveal reveal-d1 mb-4">96% de todos os erros detectados vêm dessas 6 categorias:</p>
+      <div class="error-bar-container reveal reveal-d2">
+        <div class="error-bar-item">
+          <span class="label">Baixo contraste</span>
+          <div class="error-bar-track">
+            <div class="error-bar-fill" data-width="83.9" style="background: linear-gradient(90deg, var(--red), var(--orange));"></div>
+          </div>
+          <span class="value">83.9%</span>
+        </div>
+        <div class="error-bar-item">
+          <span class="label">Alt text ausente</span>
+          <div class="error-bar-track">
+            <div class="error-bar-fill" data-width="53.1" style="background: linear-gradient(90deg, var(--orange), var(--yellow));"></div>
+          </div>
+          <span class="value">53.1%</span>
+        </div>
+        <div class="error-bar-item">
+          <span class="label">Labels ausentes</span>
+          <div class="error-bar-track">
+            <div class="error-bar-fill" data-width="51.0" style="background: linear-gradient(90deg, var(--orange), var(--yellow));"></div>
+          </div>
+          <span class="value">51.0%</span>
+        </div>
+        <div class="error-bar-item">
+          <span class="label">Links vazios</span>
+          <div class="error-bar-track">
+            <div class="error-bar-fill" data-width="46.3" style="background: linear-gradient(90deg, var(--yellow), var(--green));"></div>
+          </div>
+          <span class="value">46.3%</span>
+        </div>
+        <div class="error-bar-item">
+          <span class="label">Botões vazios</span>
+          <div class="error-bar-track">
+            <div class="error-bar-fill" data-width="30.6" style="background: linear-gradient(90deg, var(--yellow), var(--green));"></div>
+          </div>
+          <span class="value">30.6%</span>
+        </div>
+        <div class="error-bar-item">
+          <span class="label">Idioma ausente</span>
+          <div class="error-bar-track">
+            <div class="error-bar-fill" data-width="13.5" style="background: linear-gradient(90deg, var(--blue), var(--cyan));"></div>
+          </div>
+          <span class="value">13.5%</span>
+        </div>
+      </div>
+      <p class="source reveal reveal-d3">WebAIM Million 2026 — média de 56.1 erros por página</p>
+    </section>
+
+    <!-- ===== SLIDE 4: AS FERRAMENTAS ===== -->
+    <section class="slide">
+      <h2 class="slide-title text-center reveal">As 4 ferramentas que<br>todo dev <span class="gradient-text">precisa conhecer</span></h2>
+      <div class="four-cols mt-3">
+        <div class="card reveal reveal-d1">
+          <span class="tag builtin">Built-in Chrome</span>
+          <h3>Lighthouse</h3>
+          <ul>
+            <li>Score 0–100 de acessibilidade</li>
+            <li>Integrado no DevTools</li>
+            <li>Usa axe-core por baixo</li>
+            <li>Audita A e AA (WCAG)</li>
+            <li>CLI para CI/CD</li>
+          </ul>
+        </div>
+        <div class="card reveal reveal-d2">
+          <span class="tag free">Open Source</span>
+          <h3>axe DevTools</h3>
+          <ul>
+            <li>Zero falsos positivos</li>
+            <li>Extensão Chrome/Firefox</li>
+            <li>Integra em testes (Cypress, Jest)</li>
+            <li>Motor de Lighthouse e outros</li>
+            <li>WCAG 2.0 / 2.1 / 2.2</li>
+          </ul>
+        </div>
+        <div class="card reveal reveal-d3">
+          <span class="tag visual">Visual</span>
+          <h3>WAVE</h3>
+          <ul>
+            <li>Ícones sobre a página real</li>
+            <li>Detecta conteúdo oculto</li>
+            <li>Mostra ordem de leitura</li>
+            <li>Educativo — ensina enquanto testa</li>
+            <li>Usado no WebAIM Million</li>
+          </ul>
+        </div>
+        <div class="card reveal reveal-d4">
+          <span class="tag reader">Screen Reader</span>
+          <h3>NVDA</h3>
+          <ul>
+            <li>Leitor de tela gratuito (Win)</li>
+            <li>Teste humano real</li>
+            <li>Criado por devs cegos</li>
+            <li>Detecta o que automação não vê</li>
+            <li>250k+ usuários habilitados</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 5: MATRIX — O QUE CADA UMA DETECTA ===== -->
+    <section class="slide">
+      <h2 class="slide-title text-center reveal mb-4">Nenhuma ferramenta sozinha<br>é <span class="gradient-text">suficiente</span></h2>
+      <table class="matrix-table reveal reveal-d1">
+        <thead>
+          <tr>
+            <th>Capacidade</th>
+            <th>Lighthouse</th>
+            <th>axe DevTools</th>
+            <th>WAVE</th>
+            <th>NVDA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Contraste de cor</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="cross">—</span></td>
+          </tr>
+          <tr>
+            <td>Labels em formulários</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Alt text ausente</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Alt text <em>inadequado</em></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="partial">⚠ mostra visual</span></td>
+            <td><span class="check">✓ lê em voz alta</span></td>
+          </tr>
+          <tr>
+            <td>Navegação por teclado</td>
+            <td><span class="partial">⚠ parcial</span></td>
+            <td><span class="partial">⚠ parcial</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="check">✓ completo</span></td>
+          </tr>
+          <tr>
+            <td>Conteúdo oculto (modais)</td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Ordem de leitura real</td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Experiência real do usuário</td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Automação no CI/CD</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="partial">⚠ API paga</span></td>
+            <td><span class="cross">✗</span></td>
+          </tr>
+          <tr>
+            <td>Cobertura estimada</td>
+            <td><strong>~30%</strong></td>
+            <td><strong>~40%</strong></td>
+            <td><strong>~50%</strong></td>
+            <td><strong>~80%+</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="source reveal reveal-d2">Gov UK (GDS): ferramentas automatizadas cobrem 30–40% dos problemas</p>
+    </section>
+
+    <!-- ===== SLIDE 6: DEMO INTERATIVA ===== -->
+    <section class="slide">
+      <h2 class="slide-title text-center reveal mb-3" style="margin-top: 100px;">Sentindo na pele:<br><span class="gradient-text">com vs sem</span> acessibilidade</h2>
+      <div class="sim-btn-row reveal reveal-d1">
+        <button class="sim-btn sim-btn-bad active-sim" onclick="switchDemo('bad')">❌ Sem acessibilidade</button>
+        <button class="sim-btn sim-btn-good" onclick="switchDemo('good')">✅ Com acessibilidade</button>
+        <button class="sim-btn sim-btn-blur" onclick="switchDemo('blur')">👁 Simular baixa visão</button>
+      </div>
+      <div class="demo-container reveal reveal-d2">
+        <div class="demo-browser">
+          <div class="demo-browser-bar">
+            <span class="demo-dot r"></span>
+            <span class="demo-dot y"></span>
+            <span class="demo-dot g"></span>
+            <span class="demo-url">https://exemplo-formulario.com.br/cadastro</span>
+          </div>
+          <div class="demo-body" id="demoBody">
+            <div class="blur-overlay" id="blurOverlay"></div>
+            <div class="demo-form bad-form" id="demoForm">
+              <div class="field">
+                <label for="nome">Nome completo</label>
+                <input type="text" id="nome" placeholder="nome completo">
+                <div class="field-hint">Como aparece no documento</div>
+              </div>
+              <div class="field">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="email">
+                <div class="field-hint">Usaremos para confirmação</div>
+              </div>
+              <div class="field">
+                <label for="defic">Tipo de deficiência</label>
+                <select id="defic">
+                  <option>selecione</option>
+                  <option>Visual</option>
+                  <option>Auditiva</option>
+                  <option>Motora</option>
+                  <option>Cognitiva</option>
+                  <option>Nenhuma</option>
+                </select>
+                <div class="field-hint">Opcional — para personalização</div>
+              </div>
+              <button class="btn-submit">enviar</button>
+            </div>
+          </div>
+        </div>
+        <div class="sr-sim reveal reveal-d3" id="srSim">
+          <strong>🔊 NVDA:</strong> <span id="srText">Formulário. Editável. Em branco.</span><span class="cursor">▊</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 7: RELATÓRIO WAVE — BANCO ORIGINAL ===== -->
+    <section class="slide">
+      <h2 class="slide-title text-center reveal mb-3" style="margin-top: 150px;">Caso real:<br><span class="gradient-text">Banco Original</span></h2>
+      <p class="slide-subtitle reveal reveal-d1 mb-3">Relatório gerado com WAVE e Lighthouse em bancooriginal.com.br</p>
+      <div class="two-cols" style="align-items: start;">
+        <div class="reveal reveal-d2">
+          <div class="report-card">
+            <h3 class="report-card-title">Resultado WAVE</h3>
+            <div class="report-stats">
+              <div class="report-stat">
+                <span class="report-stat-icon report-stat-error">✕</span>
+                <span class="report-stat-num counter" data-target="46" data-suffix="" data-decimals="0">0</span>
+                <span class="report-stat-label">Errors</span>
+              </div>
+              <div class="report-stat">
+                <span class="report-stat-icon report-stat-contrast">◉</span>
+                <span class="report-stat-num counter" data-target="29" data-suffix="" data-decimals="0">0</span>
+                <span class="report-stat-label">Contrast</span>
+              </div>
+              <div class="report-stat">
+                <span class="report-stat-icon report-stat-alert">▲</span>
+                <span class="report-stat-num counter" data-target="41" data-suffix="" data-decimals="0">0</span>
+                <span class="report-stat-label">Alerts</span>
+              </div>
+              <div class="report-stat">
+                <span class="report-stat-icon report-stat-feature">✓</span>
+                <span class="report-stat-num counter" data-target="3" data-suffix="" data-decimals="0">0</span>
+                <span class="report-stat-label">Features</span>
+              </div>
+              <div class="report-stat">
+                <span class="report-stat-icon report-stat-structure">⊞</span>
+                <span class="report-stat-num counter" data-target="51" data-suffix="" data-decimals="0">0</span>
+                <span class="report-stat-label">Structure</span>
+              </div>
+              <div class="report-stat">
+                <span class="report-stat-icon report-stat-aria">◼</span>
+                <span class="report-stat-num counter" data-target="33" data-suffix="" data-decimals="0">0</span>
+                <span class="report-stat-label">ARIA</span>
+              </div>
+            </div>
+            <div class="aim-score">
+              <span class="aim-label">AIM Score:</span>
+              <span class="aim-value">1.9</span>
+              <span class="aim-max">/ 10</span>
+            </div>
+            <div class="aim-bar">
+              <div class="aim-bar-fill" style="width: 19%;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal reveal-d3">
+          <div class="report-findings">
+            <h3 class="report-card-title">Principais problemas encontrados</h3>
+            <div class="finding-item finding-critical">
+              <span class="finding-severity">CRÍTICO</span>
+              <p><strong>Textos alternativos ausentes</strong> — Imagens sem alt text. O NVDA lê apenas "imagem" ou "imagem1234", sem contexto.</p>
+            </div>
+            <div class="finding-item finding-critical">
+              <span class="finding-severity">CRÍTICO</span>
+              <p><strong>29 erros de contraste</strong> — Textos com ratio abaixo de 4.5:1, ilegíveis para baixa visão.</p>
+            </div>
+            <div class="finding-item finding-warning">
+              <span class="finding-severity">ALERTA</span>
+              <p><strong>Labels de formulário ausentes</strong> — Campos de input sem associação com label, invisíveis para leitores de tela.</p>
+            </div>
+            <div class="finding-item finding-warning">
+              <span class="finding-severity">ALERTA</span>
+              <p><strong>Apenas 3 features de acessibilidade</strong> — Site tem esforço mínimo. A média de sites acessíveis é 15+.</p>
+            </div>
+            <div class="finding-item finding-info">
+              <span class="finding-severity">INFO</span>
+              <p><strong>33 atributos ARIA</strong> — Presentes, mas ARIA sem semântica correta pode piorar a experiência.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="source reveal reveal-d4">Fontes: wave.webaim.org · bancooriginal.com.br · Analisado em 2025</p>
+    </section>
+
+    <!-- ===== SLIDE 8: COMO AFETA NOSSO CÓDIGO ===== -->
+    <section class="slide">
+      <h2 class="slide-title text-center reveal" style="margin-top: 150px;">O que muda no<br><span class="gradient-text">nosso código</span> amanhã?</h2>
+      <p class="slide-subtitle reveal reveal-d1 mb-3">5 práticas concretas que qualquer dev da turma pode adotar.</p>
+      <div class="timeline-container reveal reveal-d2">
+        <div class="timeline-step">
+          <div class="timeline-num">01</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <h3>HTML semântico &gt; divs genéricas</h3>
+            <p>Usar <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code> em vez de <code>&lt;div&gt;</code>. Leitores de tela usam landmarks para navegar — sem elas, é como ler um livro sem capítulos.</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-num">02</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <h3>Contraste mínimo de 4.5:1</h3>
+            <p>81% dos sites falham nisso. O DevTools do Chrome já mostra o ratio ao inspecionar cores — use. Nunca confie só na cor para indicar estado (erro, sucesso).</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-num">03</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <h3>Tudo operável por teclado</h3>
+            <p>Se não funciona com <kbd>Tab</kbd> + <kbd>Enter</kbd>, não é acessível. Use <code>&lt;button&gt;</code> em vez de <code>&lt;div onclick&gt;</code>. Gerencie foco em modais.</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-num">04</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <h3>axe no CI — bloquear regressões</h3>
+            <p><code>cypress-axe</code> ou <code>@axe-core/cli</code> no pipeline. Se o teste de acessibilidade falha, o PR não é mergeado. Mesmo princípio de lint.</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-num">05</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <h3>Testar com leitor de tela 1x por entrega</h3>
+            <p>NVDA (Win, grátis) ou VoiceOver (Mac, <code>Cmd+F5</code>). Fechar os olhos e navegar. Se não faz sentido ouvido, não faz sentido para 18.6 milhões de brasileiros.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 9: CÓDIGO COMPARADO ===== -->
+    <section class="slide" style="padding-top: 6rem;">
+      <h2 class="slide-title text-center reveal mb-4">Na prática,<br>é <span class="gradient-text">simples assim</span></h2>
+      <div class="two-cols">
+        <div class="comparison-box bad reveal reveal-d1">
+          <h3>❌ Inacessível</h3>
+          <div class="code-block">
+  <span class="comment">&lt;!-- Sem landmarks, sem semântica --&gt;</span>
+  <span class="tag-name">&lt;div</span> <span class="attr-name">class</span>=<span class="attr-val">"header"</span><span class="tag-name">&gt;</span>
+    <span class="tag-name">&lt;div</span> <span class="attr-name">class</span>=<span class="attr-val">"nav"</span><span class="tag-name">&gt;</span>
+      <span class="tag-name">&lt;div</span> <span class="attr-name">onclick</span>=<span class="attr-val">"goTo('/home')"</span><span class="tag-name">&gt;</span>
+        Home
+      <span class="tag-name">&lt;/div&gt;</span>
+    <span class="tag-name">&lt;/div&gt;</span>
+  <span class="tag-name">&lt;/div&gt;</span>
+
+  <span class="comment">&lt;!-- Botão fechar sem label --&gt;</span>
+  <span class="tag-name">&lt;div</span> <span class="attr-name">class</span>=<span class="attr-val">"close"</span>
+      <span class="attr-name">onclick</span>=<span class="attr-val">"fechar()"</span><span class="tag-name">&gt;</span>✕<span class="tag-name">&lt;/div&gt;</span>
+
+  <span class="comment">&lt;!-- Contraste 2.8:1 --&gt;</span>
+  <span class="tag-name">&lt;p</span> <span class="attr-name">style</span>=<span class="attr-val">"color:#999"</span><span class="tag-name">&gt;</span>
+    Aviso importante
+  <span class="tag-name">&lt;/p&gt;</span>
+          </div>
+        </div>
+        <div class="comparison-box good reveal reveal-d2">
+          <h3>✅ Acessível</h3>
+          <div class="code-block">
+  <span class="comment">&lt;!-- Landmarks semânticos --&gt;</span>
+  <span class="tag-name">&lt;header&gt;</span>
+    <span class="tag-name">&lt;nav</span> <span class="attr-name">aria-label</span>=<span class="attr-val">"Principal"</span><span class="tag-name">&gt;</span>
+      <span class="tag-name">&lt;a</span> <span class="attr-name">href</span>=<span class="attr-val">"/home"</span><span class="tag-name">&gt;</span>
+        Home
+      <span class="tag-name">&lt;/a&gt;</span>
+    <span class="tag-name">&lt;/nav&gt;</span>
+  <span class="tag-name">&lt;/header&gt;</span>
+
+  <span class="comment">&lt;!-- Botão com label acessível --&gt;</span>
+  <span class="tag-name">&lt;button</span> <span class="attr-name">aria-label</span>=<span class="attr-val">"Fechar"</span>
+          <span class="attr-name">onclick</span>=<span class="attr-val">"fechar()"</span><span class="tag-name">&gt;</span>✕<span class="tag-name">&lt;/button&gt;</span>
+
+  <span class="comment">&lt;!-- Contraste 4.6:1 ✓ --&gt;</span>
+  <span class="tag-name">&lt;p</span> <span class="attr-name">style</span>=<span class="attr-val">"color:#595959"</span><span class="tag-name">&gt;</span>
+    Aviso importante
+  <span class="tag-name">&lt;/p&gt;</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 9: PRÓXIMOS PASSOS ===== -->
+    <section class="slide">
+      <h2 class="slide-title text-center reveal">Próximos <span class="gradient-text">passos</span></h2>
+      <p class="slide-subtitle reveal reveal-d1 mb-4">De pesquisa acadêmica a portfólio real.</p>
+      <div class="three-cols">
+        <div class="next-card phase1 reveal reveal-d2">
+          <div class="phase-label">Fase atual</div>
+          <h3>📚 Pesquisa</h3>
+          <p>Levantamento de ferramentas, legislação, dados reais. Análise do Banco Original com Lighthouse e axe. Relatório com evidências verificáveis.</p>
+        </div>
+        <div class="next-card phase2 reveal reveal-d3">
+          <div class="phase-label">Em breve</div>
+          <h3>🛠 Portfólio Acessível</h3>
+          <p>Construção de um site-portfólio real seguindo WCAG 2.1 AA desde o primeiro commit. Frontend com HTML semântico, ARIA, foco gerenciado, contraste validado.</p>
+        </div>
+        <div class="next-card phase3 reveal reveal-d4">
+          <div class="phase-label">Visão completa</div>
+          <h3>🚀 Full-Stack Acessível</h3>
+          <p>Backend + banco de dados + frontend. Autenticação acessível, formulários inclusivos, testes automatizados de a11y no CI. Um produto real, não um exercício.</p>
+        </div>
+      </div>
+      <div class="card mt-3 reveal reveal-d5 text-center" style="max-width: 800px;">
+        <p style="font-size: 1rem; line-height: 1.6;">
+          O objetivo não é entregar uma pesquisa e esquecer. É criar um <strong>material de referência permanente</strong> que evolui para um <strong>projeto real</strong> — provando que acessibilidade e qualidade técnica andam juntas.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 10: CALL TO ACTION ===== -->
+    <section class="slide">
+      <p class="cta-question reveal">
+        Se <span class="gradient-text">95.9% dos sites</span> falham em acessibilidade<br>
+        e as ferramentas para testar são <strong>gratuitas</strong><br>
+        e levam <strong>30 segundos</strong> para rodar...
+      </p>
+      <p class="cta-question reveal reveal-d2 mt-3" style="font-size: 2.8rem;">
+        por que <span style="color: var(--red);">você</span> ainda não rodou<br>
+        um Lighthouse no <em>seu</em> último projeto?
+      </p>
+      <div class="reveal reveal-d4 mt-3" style="display: flex; gap: 2rem; align-items: center;">
+        <div class="wcag-badge">
+          <span class="dot"></span>
+          Dimensão A — Mesa [N]
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 11: QUIZ INTERATIVO ===== -->
+    <section class="slide">
+      <h2 class="slide-title text-center reveal mb-3">Quiz relâmpago:<br><span class="gradient-text">teste seu conhecimento</span></h2>
+      <div class="quiz-container reveal reveal-d1" id="quizContainer">
+        <div class="quiz-card" id="quizCard">
+          <div class="quiz-progress-bar">
+            <div class="quiz-progress-fill" id="quizProgressFill"></div>
+          </div>
+          <p class="quiz-counter" id="quizCounter">Pergunta 1 de 4</p>
+          <h3 class="quiz-question" id="quizQuestion"></h3>
+          <div class="quiz-options" id="quizOptions"></div>
+          <div class="quiz-feedback" id="quizFeedback"></div>
+        </div>
+        <div class="quiz-score-card" id="quizScore" style="display:none;">
+          <div class="quiz-score-number" id="quizScoreNum">0</div>
+          <p class="quiz-score-label">de 4 acertos</p>
+          <p class="quiz-score-msg" id="quizScoreMsg"></p>
+          <button class="quiz-restart" onclick="restartQuiz()">Tentar novamente</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 12: KEYBOARD TRAP DEMO ===== -->
+    <section class="slide">
+      <h2 class="slide-title text-center reveal mb-3">Experiência:<br><span class="gradient-text">preso no teclado</span></h2>
+      <p class="slide-subtitle reveal reveal-d1 mb-3">Clique no botão e tente sair usando apenas <kbd>Tab</kbd>.</p>
+      <div class="trap-demo reveal reveal-d2">
+        <div class="trap-browser">
+          <div class="demo-browser-bar">
+            <span class="demo-dot r"></span><span class="demo-dot y"></span><span class="demo-dot g"></span>
+            <span class="demo-url">modal-sem-acessibilidade.com.br</span>
+          </div>
+          <div class="trap-body">
+            <button class="trap-trigger" id="trapTrigger" onclick="openTrap()">Abrir modal de cookie</button>
+            <div class="trap-modal" id="trapModal">
+              <div class="trap-modal-content">
+                <h3>🍪 Este site usa cookies</h3>
+                <p>Usamos cookies para melhorar sua experiência. Ao continuar navegando, você aceita.</p>
+                <div class="trap-modal-buttons">
+                  <button class="trap-btn-accept" onclick="closeTrap('accepted')">Aceitar</button>
+                  <div class="trap-btn-fake" tabindex="0">Personalizar</div>
+                  <div class="trap-btn-fake" tabindex="0">Recusar</div>
+                </div>
+                <p class="trap-hint" id="trapHint">⚠️ Perceba: o foco não sai daqui. Os botões "Personalizar" e "Recusar" são &lt;div&gt; — não respondem a Enter.</p>
+              </div>
+            </div>
+            <div class="trap-result" id="trapResult"></div>
+          </div>
+        </div>
+        <p class="small-text mt-2 reveal reveal-d3">Esse padrão é real — muitos modais de cookie usam divs em vez de buttons, prendendo usuários de teclado.</p>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 13: CONCLUSÃO / AGRADECIMENTO ===== -->
+    <section class="slide">
+      <div class="thanks-container reveal">
+        <div class="thanks-icon">♿</div>
+        <h2 class="slide-title text-center reveal reveal-d1">
+          Acessibilidade não é<br><span class="gradient-text">feature opcional</span>.
+        </h2>
+        <p class="slide-subtitle reveal reveal-d2">É a diferença entre um site que funciona<br>e um site que funciona <strong>para todos</strong>.</p>
+        <div class="thanks-divider reveal reveal-d3"></div>
+        <div class="thanks-team reveal reveal-d4">
+          <div class="team-member">
+            <div class="member-avatar">RP</div>
+            <span>Rafael Passos</span>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">EP</div>
+            <span>Eduardo Passos</span>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">DL</div>
+            <span>Davi Lacerda</span>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">JP</div>
+            <span>João Prado</span>
+          </div>
+        </div>
+        <p class="reveal reveal-d5 mt-3" style="font-size: 1.5rem; font-weight: 600;">Obrigado!</p>
+        <p class="small-text reveal reveal-d6 mt-2">Dimensão A — Ferramentas de Teste e Diagnóstico</p>
+        <p class="small-text reveal reveal-d7" style="opacity:0.4; margin-top: 0.5rem;">Perguntas?</p>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
