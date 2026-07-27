@@ -5,7 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProdutoPedidoRepository extends JpaRepository<ProdutoPedido, Integer> {
-    ProdutoPedido findProdutoPedidoByIdIs(Long id);
+public interface ProdutoPedidoRepository extends JpaRepository<ProdutoPedido, Long> {
+
+    ProdutoPedido findProdutoPedidoById(Long id);
 
 }

@@ -1,6 +1,5 @@
 package com.FunkoPop.MarketPlace.service;
 
-
 import com.FunkoPop.MarketPlace.entity.Cliente;
 import com.FunkoPop.MarketPlace.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,32 +14,27 @@ public class ClienteService {
     @Autowired
     private ClienteRepository clienteRepository;
 
-    public Cliente saveClient(Cliente cliente) {
+    public Cliente saveCustomer(Cliente cliente){
         return clienteRepository.save(cliente);
     }
 
-    public List<Cliente> findAllClient(){
+    public List<Cliente> findAllCustomer(){
         return clienteRepository.findAll();
     }
 
-    public Optional<Cliente> findClientById(int id){
+    public Optional<Cliente> findCustomerById(Long id){
         return clienteRepository.findById(id);
     }
 
-    public void deleteClient(Cliente cliente){
+    public void deleteCustomer(Cliente cliente){
         clienteRepository.delete(cliente);
     }
 
-    public void deleteClientById(int id){
+    public void deleteCustomerById(Long id){
         clienteRepository.deleteById(id);
     }
 
-    public void deleteAllClient(){
+    public void deleteAllCustomer(){
         clienteRepository.deleteAll();
     }
-
-
-
-
-
 }

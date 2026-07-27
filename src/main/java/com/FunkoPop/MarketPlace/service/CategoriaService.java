@@ -1,7 +1,6 @@
 package com.FunkoPop.MarketPlace.service;
 
 import com.FunkoPop.MarketPlace.entity.Categoria;
-import com.FunkoPop.MarketPlace.entity.Cliente;
 import com.FunkoPop.MarketPlace.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,31 +14,27 @@ public class CategoriaService {
     @Autowired
     private CategoriaRepository categoriaRepository;
 
-    public Categoria saveClient(Categoria categoria){
+    public Categoria saveCategory(Categoria categoria){
         return categoriaRepository.save(categoria);
     }
 
-
-    public List<Categoria> findAllClient(){
+    public List<Categoria> findAllCategory(){
         return categoriaRepository.findAll();
     }
 
-    public Optional<Categoria> findClientById(int id){
+    public Optional<Categoria> findCategoryById(Long id){
         return categoriaRepository.findById(id);
     }
 
-    public void deleteClient(Categoria categoria){
+    public void deleteCategory(Categoria categoria){
         categoriaRepository.delete(categoria);
     }
 
-    public void deleteClientById(int id){
+    public void deleteCategoryById(Long id){
         categoriaRepository.deleteById(id);
     }
 
-    public void deleteAllClient(){
+    public void deleteAllCategory(){
         categoriaRepository.deleteAll();
     }
-
-
-
 }

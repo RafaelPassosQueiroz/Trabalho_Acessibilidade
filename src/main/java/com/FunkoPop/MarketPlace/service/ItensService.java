@@ -1,8 +1,6 @@
 package com.FunkoPop.MarketPlace.service;
 
-import com.FunkoPop.MarketPlace.entity.Favorito;
 import com.FunkoPop.MarketPlace.entity.Itens;
-import com.FunkoPop.MarketPlace.repository.FavoritoRepository;
 import com.FunkoPop.MarketPlace.repository.ItensRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,34 +11,30 @@ import java.util.Optional;
 @Service
 public class ItensService {
 
-
     @Autowired
     private ItensRepository itensRepository;
 
-    public Itens saveItens(Itens itens) {
-        return itensRepository.save(itens);
+    public Itens saveItem(Itens item){
+        return itensRepository.save(item);
     }
 
-    public List<Itens> findAllItens(){
+    public List<Itens> findAllItem(){
         return itensRepository.findAll();
     }
 
-    public Optional<Itens> findItensById(int id){
+    public Optional<Itens> findItemById(Long id){
         return itensRepository.findById(id);
     }
 
-    public void deleteItens(Itens itens){
-        itensRepository.delete(itens);
+    public void deleteItem(Itens item){
+        itensRepository.delete(item);
     }
 
-    public void deleteItensById(int id){
+    public void deleteItemById(Long id){
         itensRepository.deleteById(id);
     }
 
-    public void deleteAllItens(){
+    public void deleteAllItem(){
         itensRepository.deleteAll();
     }
-
-
-
 }

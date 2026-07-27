@@ -15,8 +15,8 @@ public class Endereco {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id")
-    private Cliente idCliente;
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
 
     private String cep;
     private String estado;

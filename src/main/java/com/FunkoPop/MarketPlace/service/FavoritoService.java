@@ -1,8 +1,6 @@
 package com.FunkoPop.MarketPlace.service;
 
-import com.FunkoPop.MarketPlace.entity.Cliente;
 import com.FunkoPop.MarketPlace.entity.Favorito;
-import com.FunkoPop.MarketPlace.repository.ClienteRepository;
 import com.FunkoPop.MarketPlace.repository.FavoritoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,30 +14,27 @@ public class FavoritoService {
     @Autowired
     private FavoritoRepository favoritoRepository;
 
-    public Favorito saveFavorito(Favorito favorito) {
+    public Favorito saveFavorite(Favorito favorito){
         return favoritoRepository.save(favorito);
     }
 
-    public List<Favorito> findAllFavorito(){
+    public List<Favorito> findAllFavorite(){
         return favoritoRepository.findAll();
     }
 
-    public Optional<Favorito> findFavoritoById(int id){
+    public Optional<Favorito> findFavoriteById(Long id){
         return favoritoRepository.findById(id);
     }
 
-    public void deleteFavorito(Favorito favorito){
+    public void deleteFavorite(Favorito favorito){
         favoritoRepository.delete(favorito);
     }
 
-    public void deleteFavoritoById(int id){
+    public void deleteFavoriteById(Long id){
         favoritoRepository.deleteById(id);
     }
 
-    public void deleteAllFavorito(){
+    public void deleteAllFavorite(){
         favoritoRepository.deleteAll();
     }
-
-
-
 }
