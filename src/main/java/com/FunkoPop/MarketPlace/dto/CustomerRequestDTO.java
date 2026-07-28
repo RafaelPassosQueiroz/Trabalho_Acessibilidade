@@ -11,6 +11,7 @@ public class CustomerRequestDTO {
 
     private String nome;
     private LocalDate nascimento;
+    private String senha;
     private String cpf;
     private String email;
     private String telefone;

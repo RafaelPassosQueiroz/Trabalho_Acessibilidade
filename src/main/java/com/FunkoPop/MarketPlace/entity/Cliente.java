@@ -18,6 +18,9 @@ public class Cliente {
     @Column(name = "nome", nullable = false)
     private String nome;
 
+    @Column(name= "senha", nullable = false)
+    private String senha;
+
     @Column(name = "nascimento")
     private LocalDate nascimento;
 
