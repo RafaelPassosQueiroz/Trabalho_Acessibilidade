@@ -14,7 +14,7 @@ public class Produto {
 
     private String nome;
     private String descricao;
-
+    private String imagem_url;
     private BigDecimal preco;
     private Integer estoque;
     private String sku;
