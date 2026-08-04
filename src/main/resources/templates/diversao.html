@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" th:href="@{/img/favicon.ico}" type="image/x-icon">
+<script th:src="@{/js/theme.js}"></script><title>blocz — Zona de Diversão</title>
+<link rel="stylesheet" th:href="@{/css/header.css}">
+<link rel="stylesheet" th:href="@{/css/fun.css}">
+</head>
+<body>
+
+  <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+  <div th:replace="~{fragments/header :: header}"></div>
+
+  <main id="conteudo-principal">
+    <section class="fun-hero">
+      <h1>ZONA DE BRINCADEIRA</h1>
+      <p>Ainda em construção — por enquanto, joga um pouco.</p>
+    </section>
+
+    <section class="fun-grid fun-grid-single" aria-label="Jogos disponíveis">
+      <a th:href="@{/jogo}" class="fun-card fun-card-game">
+        <span class="fun-icon" aria-hidden="true">🎮</span>
+        <span class="fun-tag">JOGO</span>
+        <h2>Blocz Catch</h2>
+        <p>Use seu avatar salvo pra pegar blocos e desviar de bombas. Quanto mais blocos, maior o placar.</p>
+      </a>
+    </section>
+  </main>
+
+  <script th:src="@{/js/cart.js}"></script>
+  <script th:src="@{/js/header.js}"></script>
+</body>
+</html>

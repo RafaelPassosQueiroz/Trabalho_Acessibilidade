@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" th:href="@{/img/favicon.ico}" type="image/x-icon">
+<script th:src="@{/js/theme.js}"></script><title>blocz — Construa seu próprio universo</title>
+<link rel="stylesheet" th:href="@{/css/header.css}">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+  <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+  <div th:replace="~{fragments/header :: header}"></div>
+
+  <main id="conteudo-principal">
+    <!-- HERO -->
+    <section class="hero">
+      <span class="eyebrow">LOJA BLOCZ</span>
+      <h1>CONSTRUA<br>SEU<br>PRÓPRIO<br>UNIVERSO</h1>
+      <p class="hero-text">Coleções exclusivas inspiradas em design modular e arte urbana. Peças limitadas em tons de roxo e azul.</p>
+      <a th:href="@{/produtos}" class="btn btn-cta">EXPLORAR COLEÇÃO <span class="arrow">→</span></a>
+    </section>
+
+    <!-- BANNERS -->
+    <section class="banners">
+      <div class="banner banner-blue">
+        <h3>NOVOS LANÇAMENTOS</h3>
+        <span class="banner-icon">🧩</span>
+      </div>
+      <div class="banner banner-gray">
+        <span class="eyebrow small">MÊS DO COLECIONADOR</span>
+        <h3>GANHE 20% EM BLOCOS DE EXPANSÃO</h3>
+        <span class="banner-icon">△○</span>
+      </div>
+    </section>
+
+    <!-- NOVOS LANÇAMENTOS -->
+    <section class="product-section">
+      <div class="section-head">
+        <div>
+          <h2>NOVOS LANÇAMENTOS</h2>
+          <p class="subtext">Drops semanais de edições raras e limitadas.</p>
+        </div>
+      </div>
+
+      <div class="product-grid" id="grid-lancamentos">
+        <!-- populado via fetch em script.js -->
+      </div>
+    </section>
+
+    <!-- MAIS VENDIDOS -->
+    <section class="product-section">
+      <div class="section-head">
+        <div>
+          <h2>MAIS VENDIDOS</h2>
+          <p class="subtext">Os favoritos da comunidade Blocz.</p>
+        </div>
+      </div>
+
+      <div class="product-grid" id="grid-vendidos">
+        <!-- populado via fetch em script.js -->
+      </div>
+    </section>
+
+    <!-- CATEGORIAS -->
+    <section class="categories">
+      <div class="category-card category-pink">
+        <h3>TÉCNICO</h3>
+        <p>Mecanismos reais e complexos.</p>
+        <span class="cat-icon">🦾</span>
+      </div>
+      <div class="category-card category-blue">
+        <h3>ESCULTURAS DIY</h3>
+        <p>Deixe sua marca com designs próprios e customizáveis.</p>
+        <span class="cat-icon">📐</span>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+      <h2>JUNTE-SE AO CLUB BLOCZ E GANHE BRINDES EXCLUSIVOS</h2>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Seu melhor e-mail" required>
+        <button type="submit" class="btn btn-subscribe">ASSINAR</button>
+      </form>
+      <p class="disclaimer">SEM SPAM, APENAS BLOCOS ÉPICOS.</p>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <nav class="footer-links">
+      <a href="#">PRIVACY</a>
+      <a href="#">TERMS</a>
+      <a href="#">SHIPPING</a>
+    </nav>
+    <p class="copyright">© 2067 BLOCZ TOYS. ALL BLOCKS RESERVED.</p>
+    <div class="social-icons">
+      <span>◐</span><span>◎</span><span>◈</span>
+    </div>
+  </footer>
+
+  <script th:src="@{/js/cart.js}"></script>
+  <script th:src="@{/js/header.js}"></script>
+  <script th:src="@{/js/script.js}"></script>
+</body>
+</html>

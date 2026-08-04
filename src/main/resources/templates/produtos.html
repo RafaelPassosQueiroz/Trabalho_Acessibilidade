@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" th:href="@{/img/favicon.ico}" type="image/x-icon">
+<script th:src="@{/js/theme.js}"></script><title>blocz — Produtos</title>
+<link rel="stylesheet" th:href="@{/css/header.css}">
+<link rel="stylesheet" th:href="@{/css/pages.css}">
+</head>
+<body>
+
+  <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+  <div th:replace="~{fragments/header :: header}"></div>
+
+  <main id="conteudo-principal" class="page">
+    <h1 style="margin-bottom:4px;">Todos os produtos</h1>
+    <p class="subtext" style="margin-bottom:20px;color:#6b6675;font-size:13px;">Filtre por categoria ou busque pelo nome.</p>
+
+    <div class="filters">
+      <label for="busca" class="sr-only">Buscar produto pelo nome</label>
+      <input type="text" id="busca" placeholder="Buscar produto...">
+      <label for="filtro-categoria" class="sr-only">Filtrar por categoria</label>
+      <select id="filtro-categoria">
+        <option value="">Todas as categorias</option>
+      </select>
+    </div>
+
+    <div class="product-grid" id="grid-produtos" aria-live="polite">
+      <!-- populado via fetch em produtos.js -->
+    </div>
+  </main>
+
+  <script th:src="@{/js/cart.js}"></script>
+  <script th:src="@{/js/header.js}"></script>
+  <script th:src="@{/js/produtos.js}"></script>
+</body>
+</html>

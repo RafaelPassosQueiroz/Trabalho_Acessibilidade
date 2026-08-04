@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" th:href="@{/img/favicon.ico}" type="image/x-icon">
+<script th:src="@{/js/theme.js}"></script><title>blocz — Cartões</title>
+<link rel="stylesheet" th:href="@{/css/header.css}">
+<link rel="stylesheet" th:href="@{/css/pages.css}">
+</head>
+<body>
+
+  <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+  <div th:replace="~{fragments/header :: header}"></div>
+
+  <main id="conteudo-principal" class="page" style="max-width:640px;">
+
+    <div id="msg" class="msg" role="alert" aria-live="assertive"></div>
+
+    <div id="lista-cartoes" style="margin-bottom:24px;" aria-live="polite">
+      <!-- populado via cartao.js -->
+    </div>
+
+    <div class="card">
+      <h1>Novo cartão</h1>
+      <p class="subtext">Guardamos só a bandeira e os últimos 4 dígitos — nunca o número completo.</p>
+
+      <form id="form-cartao">
+        <div class="field">
+          <label for="cartao-bandeira">Bandeira</label>
+          <select id="cartao-bandeira" required>
+            <option value="">Selecione</option>
+            <option value="Visa">Visa</option>
+            <option value="Mastercard">Mastercard</option>
+            <option value="Elo">Elo</option>
+            <option value="American Express">American Express</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cartao-titular">Nome do titular</label>
+          <input type="text" id="cartao-titular" required>
+        </div>
+        <div class="field">
+          <label for="cartao-numero">Número do cartão</label>
+          <input type="text" id="cartao-numero" inputmode="numeric" maxlength="19" placeholder="0000 0000 0000 0000" required>
+        </div>
+        <div class="field">
+          <label for="cartao-validade">Validade</label>
+          <input type="month" id="cartao-validade" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">SALVAR CARTÃO</button>
+      </form>
+    </div>
+  </main>
+
+  <script th:src="@{/js/cart.js}"></script>
+  <script th:src="@{/js/header.js}"></script>
+  <script th:src="@{/js/cartao.js}"></script>
+</body>
+</html>

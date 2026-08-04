@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" th:href="@{/img/favicon.ico}" type="image/x-icon">
+<script th:src="@{/js/theme.js}"></script><title>blocz — Blocz Catch</title>
+<link rel="stylesheet" th:href="@{/css/fun.css}">
+</head>
+<body class="game-page">
+
+  <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+  <main id="conteudo-principal" aria-label="Jogo Blocz Catch">
+
+    <div class="game-topbar">
+      <a th:href="@{/diversao}" aria-label="Voltar para a zona de diversão">← Voltar</a>
+      <div class="game-hud" role="status" aria-live="polite">
+        <span><span aria-hidden="true">🏆</span> <span class="sr-only">Pontos:</span> <span id="hud-score">0</span></span>
+        <span><span aria-hidden="true">❤️</span> <span class="sr-only">Vidas:</span> <span id="hud-vidas">3</span></span>
+      </div>
+    </div>
+
+    <div class="game-canvas-wrap">
+      <canvas id="gameCanvas" width="480" height="640" role="img" aria-label="Área de jogo: seu avatar embaixo, pegando blocos que caem"></canvas>
+
+      <div id="overlay-inicio" class="game-overlay">
+        <h1>Blocz Catch</h1>
+        <p>Mova seu avatar pra pegar os blocos coloridos. Desvie das bombas! Use as setas ← → do teclado ou os botões abaixo.</p>
+        <button id="btn-iniciar" class="btn btn-primary">JOGAR</button>
+      </div>
+
+      <div id="overlay-fim" class="game-overlay" style="display:none;">
+        <h2 tabindex="-1" id="titulo-fim">Fim de jogo!</h2>
+        <p id="resultado-final"></p>
+        <button id="btn-jogar-de-novo" class="btn btn-primary">JOGAR DE NOVO</button>
+      </div>
+    </div>
+
+    <div class="game-controls" aria-label="Controles do jogo">
+      <button id="btn-esquerda" aria-label="Mover avatar para a esquerda">‹</button>
+      <button id="btn-direita" aria-label="Mover avatar para a direita">›</button>
+    </div>
+
+  </main>
+
+  <script th:src="@{/js/jogo.js}"></script>
+</body>
+</html>

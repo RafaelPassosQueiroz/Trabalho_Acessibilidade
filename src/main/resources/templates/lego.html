@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" th:href="@{/img/favicon.ico}" type="image/x-icon">
+<script th:src="@{/js/theme.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/lego.css}">
+    <script defer th:src="@{/js/lego.js}"></script>
+
+    <title>blocz — Criador de Avatar</title>
+</head>
+
+<body>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <main id="conteudo-principal" class="lego-page">
+
+        <div class="lego-topbar">
+            <a th:href="@{/diversao}" id="btn-voltar" class="btn-lego-nav">← Voltar</a>
+            <h1>Monte seu Avatar</h1>
+            <button id="btn-salvar" class="btn-lego-save">Salvar Avatar</button>
+        </div>
+
+        <div class="avatar-stage">
+            <div class="avatar-container">
+
+                <img id="pernas"    th:src="@{/lego/pernas/1.svg}"    alt="Pernas do avatar">
+                <img id="torso"     th:src="@{/lego/torso/1.svg}"     alt="Torso do avatar">
+                <img id="cabeca"    th:src="@{/lego/cabeca/1.svg}"    alt="Cabeça do avatar">
+                <img id="acessorio" th:src="@{/lego/acessorio/1.svg}" alt="Acessório do avatar">
+
+                <button id="prev-acessorio" class="btn-nav btn-left btn-acessorio" aria-label="Acessório anterior">‹</button>
+                <button id="next-acessorio" class="btn-nav btn-right btn-acessorio" aria-label="Próximo acessório">›</button>
+
+                <button id="prev-cabeca" class="btn-nav btn-left btn-cabeca" aria-label="Cabeça anterior">‹</button>
+                <button id="next-cabeca" class="btn-nav btn-right btn-cabeca" aria-label="Próxima cabeça">›</button>
+
+                <button id="prev-torso" class="btn-nav btn-left btn-torso" aria-label="Torso anterior">‹</button>
+                <button id="next-torso" class="btn-nav btn-right btn-torso" aria-label="Próximo torso">›</button>
+
+                <button id="prev-pernas" class="btn-nav btn-left btn-pernas" aria-label="Pernas anteriores">‹</button>
+                <button id="next-pernas" class="btn-nav btn-right btn-pernas" aria-label="Próximas pernas">›</button>
+
+            </div>
+        </div>
+
+        <p class="lego-hint">Use as setas para trocar cada peça.</p>
+
+    </main>
+
+</body>
+</html>
