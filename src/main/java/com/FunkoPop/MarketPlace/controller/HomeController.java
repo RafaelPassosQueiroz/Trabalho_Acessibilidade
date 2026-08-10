@@ -51,6 +51,22 @@ public class HomeController {
         return "diversao";
     }
 
+    /*
+     * Nova rota para o Monte Avatar.
+     * O arquivo lego.html continua dentro de:
+     *
+     * src/main/resources/templates/lego.html
+     */
+    @GetMapping("/lego")
+    public String lego() {
+        return "lego";
+    }
+
+    /*
+     * Mantém a rota antiga /avatar funcionando.
+     * Assim, caso alguma outra página utilize /avatar,
+     * ela não será quebrada.
+     */
     @GetMapping("/avatar")
     public String avatar() {
         return "lego";
