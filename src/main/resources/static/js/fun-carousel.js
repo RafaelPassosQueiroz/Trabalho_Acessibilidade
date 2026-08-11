@@ -1,313 +1,131 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-    /*
-     * =====================================================
-     * CONFIGURAÇÃO DOS JOGOS
-     * =====================================================
-     *
-     * Para adicionar um novo jogo, basta adicionar
-     * outro objeto dentro desta lista.
-     */
-
-    const games = [
-
+    const slides = [
         {
-            title: "Bloc Catch",
-
-            image: "/img/blocz-catch.jpg",
-
-            description:
-                "Use seu avatar para pegar blocos, " +
-                "desviar das bombas e alcançar a maior " +
-                "pontuação possível.",
-
-            link: "/jogo"
+            image: "/img/ChatGPT%20Image%207%20de%20ago.%20de%202026,%2013_04_49.png",
+            alt: "Imagem do carrossel 1"
         },
-
-
         {
-            title: "Bloc Runner",
-
             image: "/img/blocz-catch.jpg",
-
-            description:
-                "Corra, desvie dos obstáculos e tente " +
-                "chegar o mais longe possível.",
-
-            link: "/jogo"
+            alt: "Imagem do carrossel 2"
         },
-
-
         {
-            title: "Bloc Puzzle",
-
+            image: "/img/6d1aaa5b-9d15-4c4e-9d3b-f72663e79a1d.jpg",
+            alt: "Imagem do carrossel 3"
+        },
+        {
             image: "/img/blocz-catch.jpg",
-
-            description:
-                "Monte as combinações certas e descubra " +
-                "quanto tempo você consegue manter o ritmo.",
-
-            link: "/jogo"
+            alt: "Imagem do carrossel 4"
+        },
+        {
+            image: "/img/6d1aaa5b-9d15-4c4e-9d3b-f72663e79a1d.jpg",
+            alt: "Imagem do carrossel 5"
         }
-
     ];
 
+    const carouselImage = document.getElementById("carouselImage");
+    const previousButton = document.getElementById("prevGame");
+    const nextButton = document.getElementById("nextGame");
+    const progress = document.getElementById("carouselProgress");
 
-    /*
-     * =====================================================
-     * ELEMENTOS
-     * =====================================================
-     */
+    let currentSlide = 0;
+    let changing = false;
 
-    const image =
-        document.getElementById("gameImage");
+    function atualizarProgresso() {
+        if (!progress || slides.length === 0) {
+            return;
+        }
 
-    const title =
-        document.getElementById("gameTitle");
-
-    const description =
-        document.getElementById("gameDescription");
-
-    const number =
-        document.getElementById("gameNumber");
-
-    const playButton =
-        document.getElementById("playGame");
-
-    const showcase =
-        document.querySelector(".game-showcase");
-
-    const previousButton =
-        document.getElementById("prevGame");
-
-    const nextButton =
-        document.getElementById("nextGame");
-
-    const indicators =
-        document.querySelectorAll(".indicator");
-
-
-    /*
-     * =====================================================
-     * ESTADO
-     * =====================================================
-     */
-
-    let currentGame = 0;
-
-
-    /*
-     * =====================================================
-     * ATUALIZAR JOGO
-     * =====================================================
-     */
-
-    function updateGame(index) {
-
-        currentGame = index;
-
-        const game = games[currentGame];
-
-
-        /*
-         * Reinicia animação
-         */
-
-        showcase.classList.remove("change");
-
-        void showcase.offsetWidth;
-
-        showcase.classList.add("change");
-
-
-        /*
-         * Atualiza imagem
-         */
-
-        image.src = game.image;
-
-        image.alt =
-            `Capa do jogo ${game.title}`;
-
-
-        /*
-         * Atualiza informações
-         */
-
-        title.textContent =
-            game.title;
-
-        description.textContent =
-            game.description;
-
-
-        /*
-         * Atualiza número
-         */
-
-        number.textContent =
-            `JOGO ${String(currentGame + 1).padStart(2, "0")}`;
-
-
-        /*
-         * Atualiza link
-         */
-
-        playButton.href =
-            game.link;
-
-
-        /*
-         * Atualiza indicadores
-         */
-
-        indicators.forEach(
-            (indicator, indicatorIndex) => {
-
-                indicator.classList.toggle(
-                    "active",
-                    indicatorIndex === currentGame
-                );
-
-            }
-        );
-
+        const percentual = 100 / slides.length;
+        progress.style.width = `${percentual}%`;
+        progress.style.transform = `translateX(${currentSlide * 100}%)`;
     }
 
-
-    /*
-     * =====================================================
-     * PRÓXIMO
-     * =====================================================
-     */
-
-    function nextGame() {
-
-        let next =
-            currentGame + 1;
-
-
-        if (next >= games.length) {
-
-            next = 0;
-
+    function mostrarSlide(index) {
+        if (slides.length === 0 || changing) {
+            return;
         }
 
+        changing = true;
 
-        updateGame(next);
+        if (index >= slides.length) {
+            index = 0;
+        }
 
+        if (index < 0) {
+            index = slides.length - 1;
+        }
+
+        const slide = slides[index];
+        carouselImage.classList.add("is-changing");
+
+        setTimeout(() => {
+            currentSlide = index;
+            carouselImage.src = slide.image;
+            carouselImage.alt = slide.alt;
+            atualizarProgresso();
+
+            requestAnimationFrame(() => {
+                carouselImage.classList.remove("is-changing");
+            });
+
+            setTimeout(() => {
+                changing = false;
+            }, 350);
+        }, 180);
     }
 
-
-    /*
-     * =====================================================
-     * ANTERIOR
-     * =====================================================
-     */
-
-    function previousGame() {
-
-        let previous =
-            currentGame - 1;
-
-
-        if (previous < 0) {
-
-            previous =
-                games.length - 1;
-
-        }
-
-
-        updateGame(previous);
-
+    function proximoSlide() {
+        mostrarSlide(currentSlide + 1);
     }
 
+    function slideAnterior() {
+        mostrarSlide(currentSlide - 1);
+    }
 
-    /*
-     * =====================================================
-     * EVENTOS
-     * =====================================================
-     */
+    previousButton.addEventListener("click", slideAnterior);
+    nextButton.addEventListener("click", proximoSlide);
 
-    nextButton.addEventListener(
-        "click",
-        nextGame
-    );
+    document.addEventListener("keydown", (event) => {
+        const elemento = document.activeElement;
+        const digitando = elemento && (elemento.tagName === "INPUT" || elemento.tagName === "TEXTAREA" || elemento.tagName === "SELECT");
 
-
-    previousButton.addEventListener(
-        "click",
-        previousGame
-    );
-
-
-    /*
-     * Indicadores
-     */
-
-    indicators.forEach(
-        (indicator) => {
-
-            indicator.addEventListener(
-                "click",
-                () => {
-
-                    const index =
-                        Number(
-                            indicator.dataset.index
-                        );
-
-                    /*
-                     * Só muda se o índice existir.
-                     */
-
-                    if (index < games.length) {
-
-                        updateGame(index);
-
-                    }
-
-                }
-            );
-
+        if (digitando) {
+            return;
         }
-    );
 
-
-    /*
-     * =====================================================
-     * TECLADO
-     * =====================================================
-     */
-
-    document.addEventListener(
-        "keydown",
-        (event) => {
-
-            if (event.key === "ArrowLeft") {
-
-                previousGame();
-
-            }
-
-
-            if (event.key === "ArrowRight") {
-
-                nextGame();
-
-            }
-
+        if (event.key === "ArrowLeft") {
+            event.preventDefault();
+            slideAnterior();
         }
-    );
 
+        if (event.key === "ArrowRight") {
+            event.preventDefault();
+            proximoSlide();
+        }
+    });
 
-    /*
-     * =====================================================
-     * INICIALIZAÇÃO
-     * =====================================================
-     */
+    let toqueInicialX = 0;
+    let toqueFinalX = 0;
 
-    updateGame(0);
+    carouselImage.addEventListener("touchstart", (event) => {
+        toqueInicialX = event.changedTouches[0].screenX;
+    }, { passive: true });
 
+    carouselImage.addEventListener("touchend", (event) => {
+        toqueFinalX = event.changedTouches[0].screenX;
+        const distancia = toqueFinalX - toqueInicialX;
+
+        if (distancia < -50) {
+            proximoSlide();
+        }
+
+        if (distancia > 50) {
+            slideAnterior();
+        }
+    }, { passive: true });
+
+    if (slides.length > 0) {
+        mostrarSlide(0);
+    }
 });
+
