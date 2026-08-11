@@ -1,5 +1,6 @@
 package com.FunkoPop.MarketPlace.service;
 
+import com.FunkoPop.MarketPlace.entity.Pedido;
 import com.FunkoPop.MarketPlace.entity.ProdutoPedido;
 import com.FunkoPop.MarketPlace.repository.ProdutoPedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,8 @@ public class ProdutoPedidoService {
     public ProdutoPedido saveProductOrder(ProdutoPedido produtoPedido){
         return produtoPedidoRepository.save(produtoPedido);
     }
+
+    public List<ProdutoPedido> saveAll(List<ProdutoPedido> produtoPedidos){return produtoPedidoRepository.saveAll(produtoPedidos);}
 
     public List<ProdutoPedido> findAllProductOrder(){
         return produtoPedidoRepository.findAll();

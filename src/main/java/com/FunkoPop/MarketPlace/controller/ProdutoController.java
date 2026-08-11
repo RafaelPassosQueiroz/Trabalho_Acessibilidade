@@ -19,6 +19,11 @@ public class ProdutoController {
         return productService.saveProduct(product);
     }
 
+    @PostMapping("/batch")
+    public List<Produto> saveAll(@RequestBody List<Produto> produtos){
+        return productService.saveAll(produtos);
+    }
+
     @GetMapping
     public List<Produto> findAll(){
         return productService.findAllProduct();

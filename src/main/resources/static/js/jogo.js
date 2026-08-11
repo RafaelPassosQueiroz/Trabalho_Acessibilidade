@@ -5,16 +5,14 @@ const H = canvas.height;
 
 // carrega o avatar salvo (ou usa peça 1 em tudo como padrão)
 const avatarSalvo = JSON.parse(localStorage.getItem("blocz_avatar") || "null")
-  || { cabeca: 1, torso: 1, pernas: 1, acessorio: 1 };
+    || { cabeca: 1, torso: 1, pernas: 1 };
 
 const imgCabeca = new Image();
 const imgTorso = new Image();
 const imgPernas = new Image();
-const imgAcessorio = new Image();
 imgCabeca.src = `/lego/cabeca/${avatarSalvo.cabeca}.svg`;
 imgTorso.src = `/lego/torso/${avatarSalvo.torso}.svg`;
 imgPernas.src = `/lego/pernas/${avatarSalvo.pernas ?? 1}.svg`;
-imgAcessorio.src = `/lego/acessorio/${avatarSalvo.acessorio ?? 1}.svg`;
 
 const CORES_BLOCO = ["#7c3aed", "#38bdf8", "#f472b6", "#facc15"];
 
@@ -128,17 +126,15 @@ function desenharPlayer() {
   desenharPecaProporcional(imgTorso, centroX, py + 58, 69);        // torso
   desenharPecaProporcional(imgCabeca, centroX, py, alturaCabeca);  // cabeça (altura variável)
 
-  // acessório: no criador original ele tem offset próprio (x:+95, y:80, altura:130
   // num container de 500px) — não fica centralizado. Escalando pra cá:
-  desenharPecaProporcional(imgAcessorio, centroX + 33, py + 27, 45);
 }
 
 function colidiu(item) {
   return (
-    item.y + item.raio > player.y &&
-    item.y - item.raio < player.y + player.altura &&
-    item.x + item.raio > player.x &&
-    item.x - item.raio < player.x + player.largura
+      item.y + item.raio > player.y &&
+      item.y - item.raio < player.y + player.altura &&
+      item.x + item.raio > player.x &&
+      item.x - item.raio < player.x + player.largura
   );
 }
 
@@ -218,8 +214,8 @@ function fimDeJogo() {
   if (bateuRecorde) localStorage.setItem("blocz_highscore", score);
 
   document.getElementById("resultado-final").textContent = bateuRecorde
-    ? `Novo recorde: ${score} pontos! 🎉`
-    : `Você fez ${score} pontos. Recorde: ${Math.max(score, recorde)}.`;
+      ? `Novo recorde: ${score} pontos! 🎉`
+      : `Você fez ${score} pontos. Recorde: ${Math.max(score, recorde)}.`;
   document.getElementById("overlay-fim").style.display = "flex";
 
   // leva o foco pro título de fim de jogo, pra quem navega por teclado/leitor de tela
