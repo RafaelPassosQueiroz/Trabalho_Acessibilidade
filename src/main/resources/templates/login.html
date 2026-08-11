@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" th:href="@{/img/favicon.ico}" type="image/x-icon">
+<script th:src="@{/js/theme.js}"></script><title>blocz — Entrar</title>
+<link rel="stylesheet" th:href="@{/css/header.css}">
+<link rel="stylesheet" th:href="@{/css/pages.css}">
+</head>
+<body>
+
+  <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+  <div th:replace="~{fragments/header :: header}"></div>
+
+  <main id="conteudo-principal" class="page auth-wrap">
+    <div class="card">
+
+      <div class="tabs">
+        <button id="tab-login" class="active" onclick="mostrarAba('login')">ENTRAR</button>
+        <button id="tab-cadastro" onclick="mostrarAba('cadastro')">CRIAR CONTA</button>
+      </div>
+
+      <div id="msg" class="msg" role="alert" aria-live="assertive"></div>
+
+      <!-- LOGIN -->
+      <form id="form-login">
+        <h1>Bem-vindo de volta</h1>
+        <p class="subtext">Entre com seu e-mail cadastrado.</p>
+        <div class="field">
+          <label for="login-email">E-mail</label>
+          <input type="email" id="login-email" required>
+        </div>
+        <div class="field">
+          <label for="login-senha">Senha</label>
+          <input type="password" id="login-senha" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">ENTRAR</button>
+      </form>
+
+      <!-- CADASTRO -->
+      <form id="form-cadastro" style="display:none;">
+        <h1>Criar conta</h1>
+        <p class="subtext">Leva menos de um minuto.</p>
+        <div class="field">
+          <label for="cad-nome">Nome completo</label>
+          <input type="text" id="cad-nome" required>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="cad-email">E-mail</label>
+            <input type="email" id="cad-email" required>
+          </div>
+          <div class="field">
+            <label for="cad-senha">Senha</label>
+            <input type="password" id="cad-senha" required minlength="6">
+          </div>
+        </div>
+        <div class="field">
+          <label for="cad-telefone">Telefone</label>
+          <input type="tel" id="cad-telefone">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="cad-cpf">CPF</label>
+            <input type="text" id="cad-cpf" maxlength="11" placeholder="Somente números">
+          </div>
+          <div class="field">
+            <label for="cad-nascimento">Nascimento</label>
+            <input type="date" id="cad-nascimento">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">CRIAR CONTA</button>
+      </form>
+
+    </div>
+  </main>
+
+  <script th:src="@{/js/cart.js}"></script>
+  <script th:src="@{/js/header.js}"></script>
+  <script th:src="@{/js/auth.js}"></script>
+</body>
+</html>

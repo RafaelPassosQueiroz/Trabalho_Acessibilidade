@@ -1,0 +1,190 @@
+:root{
+    --purple-deep:#2e1065;
+    --purple:#6d28d9;
+    --purple-bright:#7c3aed;
+    --blue-bright:#38bdf8;
+    --ink:#171321;
+    --ink-soft:#565059;
+    --card-bg:#ffffff;
+  }
+  
+  *{box-sizing:border-box;}
+  
+  html, body{
+    height: 100%;
+  }
+  
+  body {
+      margin: 0;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at 50% 0%, #ede9fe 0%, #f4f2f9 45%, #f0f2f5 100%);
+      -webkit-font-smoothing: antialiased;
+  }
+  
+  /* botões não herdam a fonte do body por padrão — corrige aqui */
+  button, input, select, textarea{
+    font-family: inherit;
+  }
+  
+  a:focus-visible, button:focus-visible{
+    outline: 3px solid var(--purple);
+    outline-offset: 2px;
+  }
+  
+  @media (prefers-reduced-motion: reduce){
+    *, *::before, *::after{
+      animation-duration: 0.001ms !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+  
+  /* ===== LAYOUT GERAL: cabe numa tela só, sem precisar rolar ===== */
+  .lego-page{
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 16px 20px;
+      gap: 8px;
+  }
+  
+  .lego-topbar{
+      width: 100%;
+      max-width: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+  }
+  .lego-topbar h1{
+      margin: 0;
+      flex: 1;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--purple-deep);
+      letter-spacing: -0.01em;
+  }
+  
+  .btn-lego-nav, .btn-lego-save{
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: .03em;
+      padding: 10px 18px;
+      border-radius: 999px;
+      white-space: nowrap;
+      text-decoration: none;
+      display: inline-block;
+      transition: transform .15s ease, opacity .15s ease;
+  }
+  .btn-lego-nav{
+      background: #fff;
+      color: var(--ink);
+      box-shadow: 0 4px 12px -4px rgba(46,16,101,.25), 0 0 0 1px rgba(109,40,217,.08);
+  }
+  .btn-lego-save{
+      background: linear-gradient(90deg, var(--purple), var(--purple-bright));
+      color: #fff;
+  }
+  .btn-lego-nav:hover, .btn-lego-save:hover{ transform: translateY(-1px); opacity: .92; }
+  
+  /* ===== STAGE: moldura com respiro real ao redor do boneco ===== */
+  .avatar-stage{
+      background: var(--card-bg);
+      border-radius: 28px;
+      box-shadow: 0 20px 45px -15px rgba(46, 16, 101, 0.25), 0 0 0 1px rgba(109, 40, 217, 0.06);
+      padding: clamp(20px, 4vh, 40px) clamp(30px, 6vw, 60px);
+      display: inline-flex;
+  }
+  
+  .avatar-container {
+      position: relative;
+      width: 310px;
+      height: 500px;
+      margin: 0 auto;
+  }
+  
+  .avatar-container img {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      cursor: default;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      will-change: transform, opacity;
+      pointer-events: none;
+  }
+  
+  #cabeca    { top: 1px;   height: 170px; z-index: 3; }
+  #torso     { top: 170px; height: 200px; z-index: 2; }
+  #pernas    { top: 320px; height: 175px; z-index: 1; }
+  #acessorio { top: 0; left: calc(50% - 50px); height: 100px; z-index: 4; }
+  
+  /* Botões grudados na lateral de cada peça, alinhados pelo centro vertical dela */
+  .btn-nav {
+      position: absolute;
+      width: 38px;
+      height: 38px;
+      border: none;
+      border-radius: 50%;
+      background: var(--card-bg);
+      box-shadow: 0 6px 16px -4px rgba(46, 16, 101, 0.3), 0 0 0 1px rgba(109, 40, 217, 0.08);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--purple);
+      cursor: pointer;
+      z-index: 20;
+      transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+  }
+  .btn-nav:hover  { background: var(--purple); color: #fff; transform: scale(1.08); }
+  .btn-nav:active { transform: scale(0.9); }
+  
+  .btn-left  { left: -80px; }
+  .btn-right { right: -80px; }
+  
+  .btn-cabeca    { top: calc(1px   + 170px/2 - 19px); }
+  .btn-torso     { top: calc(170px + 200px/2 - 19px); }
+  .btn-pernas    { top: calc(320px + 175px/2 - 19px); }
+  .btn-acessorio { top: calc(0px   + 100px/2 - 19px); }
+  .btn-acessorio.btn-left  { left: -145px; }
+  .btn-acessorio.btn-right { right: -145px; }
+  
+  .lego-hint{
+      font-size: 0.8125rem;
+      color: var(--ink-soft);
+      margin: 0;
+  }
+  
+  /* TOAST de confirmação */
+  .toast{
+      position: fixed;
+      top: 20px; left: 50%;
+      transform: translateX(-50%) translateY(-20px);
+      background: var(--ink);
+      color: #fff;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      padding: 12px 22px;
+      border-radius: 999px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s ease, transform .25s ease;
+      z-index: 100;
+  }
+  .toast.show{
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+  }
+  
+  @media(max-width: 640px){
+      .lego-topbar{ flex-wrap: wrap; }
+      .lego-topbar h1{ order: -1; width: 100%; font-size: 1.375rem; margin-bottom: 4px; }
+      .btn-left  { left: -46px; }
+      .btn-right { right: -46px; }
+      .btn-acessorio.btn-left  { left: -60px; top: -200px; }
+      .btn-acessorio.btn-right { right: -60px; top: -200px; }
+  }

@@ -1,0 +1,267 @@
+<!-- <!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" th:href="@{/img/favicon.ico}" type="image/x-icon">
+<script th:src="@{/js/theme.js}"></script><title>blocz — Zona de Diversão</title>
+<link rel="stylesheet" th:href="@{/css/header.css}">
+<link rel="stylesheet" th:href="@{/css/fun.css}">
+</head>
+<body>
+
+  <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+  <div th:replace="~{fragments/header :: header}"></div>
+
+  <main id="conteudo-principal">
+    <section class="fun-hero">
+      <h1>ZONA DE BRINCADEIRA</h1>
+      <p>Ainda em construção — por enquanto, joga um pouco.</p>
+    </section>
+
+    <section class="fun-grid fun-grid-single" aria-label="Jogos disponíveis">
+      <a th:href="@{/jogo}" class="fun-card fun-card-game">
+        <span class="fun-icon" aria-hidden="true">🎮</span>
+        <span class="fun-tag">JOGO</span>
+        <h2>Blocz Catch</h2>
+        <p>Use seu avatar salvo pra pegar blocos e desviar de bombas. Quanto mais blocos, maior o placar.</p>
+      </a>
+    </section>
+
+    <section class="fun-grid fun-grid-single" aria-label="Jogos disponíveis">
+      <a th:href="@{/jogo}" class="fun-card fun-card-game">
+        <span class="fun-icon" aria-hidden="true">🎮</span>
+        <span class="fun-tag">JOGO</span>
+        <h2>Blocz Catch</h2>
+        <p>Use seu avatar salvo pra pegar blocos e desviar de bombas. Quanto mais blocos, maior o placar.</p>
+      </a>
+    </section>
+  </main>
+
+  <script th:src="@{/js/cart.js}"></script>
+  <script th:src="@{/js/header.js}"></script>
+</body>
+</html>
+
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon"
+          th:href="@{/img/favicon.ico}"
+          type="image/x-icon">
+
+    <script th:src="@{/js/theme.js}"></script>
+
+    <title>blocz — Zona de Diversão</title>
+
+    <!-- CSS existente -->
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+
+    <!-- Novo CSS da página de jogos -->
+    <link rel="stylesheet" th:href="@{/css/fun.css}">
+</head>
+
+<body>
+
+<a href="#conteudo-principal" class="skip-link">
+    Pular para o conteúdo principal
+</a>
+
+<!-- HEADER EXISTENTE -->
+<div th:replace="~{fragments/header :: header}"></div>
+
+
+<main id="conteudo-principal">
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="fun-hero">
+
+        <div class="fun-hero-content">
+
+            <span class="fun-eyebrow">
+                BLOCZ PLAY
+            </span>
+
+            <h1>
+                ZONA DE<br>
+                BRINCADEIRA
+            </h1>
+
+            <p>
+                Escolha um jogo, entre na diversão
+                e tente superar seu próprio recorde.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CARROSSEL DE JOGOS
+    ====================================================== -->
+
+    <section
+        class="games-carousel"
+        aria-label="Jogos disponíveis"
+    >
+
+        <!-- SETA ESQUERDA -->
+
+        <button
+            class="carousel-arrow carousel-arrow-left"
+            id="prevGame"
+            type="button"
+            aria-label="Jogo anterior"
+        >
+            <span>‹</span>
+        </button>
+
+
+        <!-- ÁREA DO JOGO -->
+
+        <div class="game-showcase">
+
+            <!-- CAPA -->
+
+            <div class="game-cover-wrapper">
+
+                <div class="game-cover-glow"></div>
+
+                <div class="game-cover">
+
+                    <img
+                        id="gameImage"
+                        src="/img/blocz-catch.jpg"
+                        alt="Capa do jogo Blocz Catch"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- INFORMAÇÕES -->
+
+            <div class="game-information">
+
+                <span
+                    class="game-number"
+                    id="gameNumber"
+                >
+                    JOGO 01
+                </span>
+
+                <h2 id="gameTitle">
+                    Bloc Catch
+                </h2>
+
+                <p id="gameDescription">
+                    Use seu avatar para pegar blocos,
+                    desviar das bombas e alcançar a
+                    maior pontuação possível.
+                </p>
+
+
+                <a
+                    th:href="@{/jogo}"
+                    class="play-button"
+                    id="playGame"
+                >
+                    <span>JOGAR AGORA</span>
+                    <strong>→</strong>
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- SETA DIREITA -->
+
+        <button
+            class="carousel-arrow carousel-arrow-right"
+            id="nextGame"
+            type="button"
+            aria-label="Próximo jogo"
+        >
+            <span>›</span>
+        </button>
+
+    </section>
+
+
+    <!-- =====================================================
+         INDICADORES
+    ====================================================== -->
+
+    <div
+        class="carousel-indicators"
+        id="carouselIndicators"
+        aria-label="Selecionar jogo"
+    >
+        <button
+            class="indicator active"
+            type="button"
+            aria-label="Selecionar jogo 1"
+            data-index="0"
+        ></button>
+
+        <button
+            class="indicator"
+            type="button"
+            aria-label="Selecionar jogo 2"
+            data-index="1"
+        ></button>
+
+        <button
+            class="indicator"
+            type="button"
+            aria-label="Selecionar jogo 3"
+            data-index="2"
+        ></button>
+    </div>
+
+
+    <!-- =====================================================
+         FRASE INFERIOR
+    ====================================================== -->
+
+    <section class="fun-footer-message">
+
+        <span>+</span>
+
+        <p>
+            Mais jogos estão chegando.
+        </p>
+
+        <span>+</span>
+
+    </section>
+
+</main>
+
+
+<!-- =====================================================
+     JS EXISTENTE
+====================================================== -->
+
+<script th:src="@{/js/cart.js}"></script>
+<script th:src="@{/js/header.js}"></script>
+
+<!-- JS EXCLUSIVO DO CARROSSEL -->
+<script th:src="@{/js/fun-carousel.js}"></script>
+
+</body>
+</html>

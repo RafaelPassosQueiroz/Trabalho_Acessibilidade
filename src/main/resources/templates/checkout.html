@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" th:href="@{/img/favicon.ico}" type="image/x-icon">
+<script th:src="@{/js/theme.js}"></script><title>blocz — Checkout</title>
+<link rel="stylesheet" th:href="@{/css/header.css}">
+<link rel="stylesheet" th:href="@{/css/pages.css}">
+</head>
+<body>
+
+  <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+  <div th:replace="~{fragments/header :: header}"></div>
+
+  <main id="conteudo-principal" class="page" style="max-width:640px;">
+    <div class="checkout-steps" aria-hidden="true">
+      <span class="done"></span><span class="done"></span><span></span>
+    </div>
+
+    <div id="msg" class="msg" role="alert" aria-live="assertive"></div>
+
+    <div id="conteudo-checkout" class="card">
+      <!-- populado via checkout.js -->
+    </div>
+  </main>
+
+  <script th:src="@{/js/cart.js}"></script>
+  <script th:src="@{/js/header.js}"></script>
+  <script th:src="@{/js/checkout.js}"></script>
+</body>
+</html>

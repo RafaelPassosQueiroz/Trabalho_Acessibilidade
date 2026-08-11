@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" th:href="@{/img/favicon.ico}" type="image/x-icon">
+<script th:src="@{/js/theme.js}"></script><title>blocz — Endereços</title>
+<link rel="stylesheet" th:href="@{/css/header.css}">
+<link rel="stylesheet" th:href="@{/css/pages.css}">
+</head>
+<body>
+
+  <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+  <div th:replace="~{fragments/header :: header}"></div>
+
+  <main id="conteudo-principal" class="page" style="max-width:640px;">
+
+    <div id="msg" class="msg" role="alert" aria-live="assertive"></div>
+
+    <div id="lista-enderecos" style="margin-bottom:24px;" aria-live="polite">
+      <!-- populado via endereco.js -->
+    </div>
+
+    <div class="card">
+      <h1>Novo endereço</h1>
+      <p class="subtext">Usado na entrega dos seus pedidos.</p>
+
+      <form id="form-endereco">
+        <div class="field-row">
+          <div class="field">
+            <label for="end-cep">CEP</label>
+            <input type="text" id="end-cep" required>
+          </div>
+          <div class="field">
+            <label for="end-estado">Estado</label>
+            <input type="text" id="end-estado" maxlength="2" placeholder="UF" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="end-cidade">Cidade</label>
+          <input type="text" id="end-cidade" required>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="end-rua">Rua</label>
+            <input type="text" id="end-rua" required>
+          </div>
+          <div class="field">
+            <label for="end-numero">Número</label>
+            <input type="number" id="end-numero" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="end-logradouro">Bairro</label>
+          <input type="text" id="end-logradouro">
+        </div>
+        <div class="field">
+          <label for="end-complemento">Complemento</label>
+          <input type="text" id="end-complemento" placeholder="Opcional">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">SALVAR ENDEREÇO</button>
+      </form>
+    </div>
+  </main>
+
+  <script th:src="@{/js/cart.js}"></script>
+  <script th:src="@{/js/header.js}"></script>
+  <script th:src="@{/js/endereco.js}"></script>
+</body>
+</html>
