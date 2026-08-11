@@ -1,160 +1,12 @@
-<!--
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="shortcut icon" th:href="@{/img/favicon.ico}" type="image/x-icon">
-<script th:src="@{/js/theme.js}"></script><title>blocz — Construa seu próprio universo</title>
-<link rel="stylesheet" th:href="@{/css/header.css}">
-<link rel="stylesheet" th:href="@{/css/style.css}">
-</head>
-<body>
-
-  <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
-
-  <div th:replace="~{fragments/header :: header}"></div>
-
-  <main id="conteudo-principal">
-     HERO 
-    <section class="hero">
-      <span class="eyebrow">LOJA BLOCZ</span>
-      <h1>CONSTRUA<br>SEU<br>PRÓPRIO<br>UNIVERSO</h1>
-      <p class="hero-text">Coleções exclusivas inspiradas em design modular e arte urbana. Peças limitadas em tons de roxo e azul.</p>
-      <a th:href="@{/produtos}" class="btn btn-cta">EXPLORAR COLEÇÃO <span class="arrow">→</span></a>
-    </section>
-
-    BANNERS
-    <section class="banners">
-      <div class="banner banner-blue">
-        <h3>NOVOS LANÇAMENTOS</h3>
-        <span class="banner-icon">🧩</span>
-      </div>
-      <div class="banner banner-gray">
-        <span class="eyebrow small">MÊS DO COLECIONADOR</span>
-        <h3>GANHE 20% EM BLOCOS DE EXPANSÃO</h3>
-        <span class="banner-icon">△○</span>
-      </div>
-    </section>
-
-     NOVOS LANÇAMENTOS
-    <section class="product-section">
-      <div class="section-head">
-        <div>
-          <h2>NOVOS LANÇAMENTOS</h2>
-          <p class="subtext">Drops semanais de edições raras e limitadas.</p>
-        </div>
-      </div>
-
-      <div class="product-grid" id="grid-lancamentos">
-        populado via fetch em script.js
-      </div>
-    </section>
-
-     MAIS VENDIDOS 
-    <section class="product-section">
-      <div class="section-head">
-        <div>
-          <h2>MAIS VENDIDOS</h2>
-          <p class="subtext">Os favoritos da comunidade Blocz.</p>
-        </div>
-      </div>
-
-      <div class="product-grid" id="grid-vendidos">
-        populado via fetch em script.js
-      </div>
-    </section>
-
-    CATEGORIAS
-    <section class="categories">
-      <div class="category-card category-pink">
-        <h3>TÉCNICO</h3>
-        <p>Mecanismos reais e complexos.</p>
-        <span class="cat-icon">🦾</span>
-      </div>
-      <div class="category-card category-blue">
-        <h3>ESCULTURAS DIY</h3>
-        <p>Deixe sua marca com designs próprios e customizáveis.</p>
-        <span class="cat-icon">📐</span>
-      </div>
-    </section>
-
-    NEWSLETTER
-    <section class="newsletter">
-      <h2>JUNTE-SE AO CLUB BLOCZ E GANHE BRINDES EXCLUSIVOS</h2>
-      <form class="newsletter-form">
-        <input type="email" placeholder="Seu melhor e-mail" required>
-        <button type="submit" class="btn btn-subscribe">ASSINAR</button>
-      </form>
-      <p class="disclaimer">SEM SPAM, APENAS BLOCOS ÉPICOS.</p>
-    </section>
-  </main>
-
-   FOOTER 
-  <footer class="footer">
-    <nav class="footer-links">
-      <a href="#">PRIVACY</a>
-      <a href="#">TERMS</a>
-      <a href="#">SHIPPING</a>
-    </nav>
-    <p class="copyright">© 2067 BLOCZ TOYS. ALL BLOCKS RESERVED.</p>
-    <div class="social-icons">
-      <span>◐</span><span>◎</span><span>◈</span>
-    </div>
-  </footer>
-
-  <script th:src="@{/js/cart.js}"></script>
-  <script th:src="@{/js/header.js}"></script>
-  <script th:src="@{/js/script.js}"></script>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--->
-
-<!DOCTYPE html>
-<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta
-    name="description"
-    content="BlocZ — blocos, colecionáveis e criações para quem gosta de construir, brincar e colecionar."
-  >
-
+  <meta name="description" content="BlocZ — blocos, colecionáveis e criações para quem gosta de construir, brincar e colecionar.">
   <title>BlocZ | Construa sua diversão</title>
-
-<link rel="stylesheet" th:href="@{/css/header.css}">
-<link rel="stylesheet" th:href="@{/css/style.css}">
+  <link rel="stylesheet" th:href="@{/css/header.css}">
+  <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
@@ -170,59 +22,7 @@
   <div class="floating-block floating-block-3" aria-hidden="true"></div>
 
   <!-- HEADER -->
-  <!-- HEADER -->
-<header class="site-header">
-
-    <a th:href="@{/}"
-       class="site-logo"
-       aria-label="Blocz - página inicial">
-
-        <img th:src="@{/img/Logo.svg}"
-             alt="Logo Blocz">
-
-    </a>
-
-    <nav class="site-nav" aria-label="Navegação principal">
-
-        <a th:href="@{/}">
-            INÍCIO
-        </a>
-
-        <a th:href="@{/produtos}">
-            PRODUTOS
-        </a>
-
-        <a th:href="@{/lego}">
-            MONTE AVATAR
-        </a>
-
-        <a th:href="@{/diversao}">
-            DIVERSÃO
-        </a>
-
-        <a th:href="@{/carrinho}"
-           class="cart-link">
-
-            CARRINHO
-
-            <span id="cart-count"
-                  class="cart-badge"
-                  aria-hidden="true"></span>
-
-            <span id="cart-count-sr"
-                  class="sr-only"
-                  aria-live="polite"></span>
-
-        </a>
-
-    </nav>
-
-    <div id="auth-status" class="auth-status">
-        <!-- preenchido pelo header.js -->
-    </div>
-
-</header>
-
+  <div th:replace="~{fragments/header :: header}"></div>
 
   <main id="main-content">
 
@@ -256,18 +56,12 @@
 
           <div class="hero-actions">
 
-            <a
-              href="/produtos"
-              class="btn btn-cta"
-            >
+            <a href="/produtos" class="btn btn-cta">
               EXPLORAR BLOCOS
               <span class="arrow" aria-hidden="true">→</span>
             </a>
 
-            <a
-              href="#lancamentos"
-              class="hero-secondary-link"
-            >
+            <a href="#lancamentos" class="hero-secondary-link">
               Ver novidades
             </a>
 
@@ -279,23 +73,13 @@
 
           <div class="hero-image-frame">
 
-            <span
-              class="hero-sticker hero-sticker-top"
-              aria-hidden="true"
-            >
+            <span class="hero-sticker hero-sticker-top" aria-hidden="true">
               WOW!
             </span>
 
+            <img th:src="@{/img/ChatGPT Image 7 de ago. de 2026, 13_04_49.png}" alt="Personagens de blocos reunidos em uma cena divertida" class="hero-image">
 
-            <img
-              th:src="@{/img/ChatGPT Image 7 de ago. de 2026, 13_04_49.png}"
-              alt="Personagens de blocos reunidos em uma cena divertida"
-              class="hero-image"
-            >
-            <span
-              class="hero-sticker hero-sticker-bottom"
-              aria-hidden="true"
-            >
+            <span class="hero-sticker hero-sticker-bottom" aria-hidden="true">
               +DIVERSÃO
             </span>
 
@@ -312,20 +96,14 @@
 
     </section>
 
-
     <!-- BANNERS -->
-    <section
-      class="banners"
-      aria-label="Destaques"
-    >
+    <section class="banners" aria-label="Destaques">
 
       <div class="banner banner-blue">
 
         <div class="banner-content">
           <span class="banner-label">NOVIDADE</span>
-
           <h2>NOVOS<br>LANÇAMENTOS</h2>
-
           <a href="#lancamentos" class="banner-link">
             CONFERIR
             <span aria-hidden="true">↗</span>
@@ -338,25 +116,20 @@
 
       </div>
 
-
       <div class="banner banner-gray">
 
         <div class="banner-content">
-
           <span class="eyebrow small">
             MÊS DO COLECIONADOR
           </span>
-
           <h2>
             GANHE 20% EM<br>
             BLOCOS DE EXPANSÃO
           </h2>
-
           <a href="/produtos" class="banner-link">
             QUERO O MEU
             <span aria-hidden="true">→</span>
           </a>
-
         </div>
 
         <span class="banner-icon" aria-hidden="true">
@@ -367,109 +140,74 @@
 
     </section>
 
-
     <!-- NOVOS LANÇAMENTOS -->
-    <section
-      class="product-section"
-      id="lancamentos"
-      aria-labelledby="lancamentos-title"
-    >
+    <section class="product-section" id="lancamentos" aria-labelledby="lancamentos-title">
 
       <div class="section-head">
 
         <div>
           <span class="section-kicker">ACABOU DE CHEGAR</span>
-
           <h2 id="lancamentos-title">
             NOVOS LANÇAMENTOS
             <span aria-hidden="true">✦</span>
           </h2>
-
           <p class="subtext">
             Drops semanais de edições raras e limitadas.
           </p>
         </div>
 
-        <a
-          href="/produtos"
-          class="section-link"
-        >
+        <a href="/produtos" class="section-link">
           VER TODOS
           <span aria-hidden="true">→</span>
         </a>
 
       </div>
 
-      <div
-        class="product-grid"
-        id="grid-lancamentos"
-        aria-live="polite"
-        aria-busy="true"
-      >
+      <div class="product-grid" id="grid-lancamentos" aria-live="polite" aria-busy="true">
         <!-- populado via fetch em script.js -->
       </div>
 
     </section>
 
-
     <!-- MAIS VENDIDOS -->
-    <section
-      class="product-section product-section-sellers"
-      aria-labelledby="vendidos-title"
-    >
+    <section class="product-section product-section-sellers" aria-labelledby="vendidos-title">
 
       <div class="section-head">
 
         <div>
           <span class="section-kicker">A GALERA AMA</span>
-
           <h2 id="vendidos-title">
             MAIS VENDIDOS
             <span aria-hidden="true">★</span>
           </h2>
-
           <p class="subtext">
             Os favoritos da comunidade Blocz.
           </p>
         </div>
 
-        <a
-          href="/produtos"
-          class="section-link"
-        >
+        <a href="/produtos" class="section-link">
           VER TODOS
           <span aria-hidden="true">→</span>
         </a>
 
       </div>
 
-      <div
-        class="product-grid"
-        id="grid-vendidos"
-        aria-live="polite"
-        aria-busy="true"
-      >
+      <div class="product-grid" id="grid-vendidos" aria-live="polite" aria-busy="true">
         <!-- populado via fetch em script.js -->
       </div>
 
     </section>
 
-
     <!-- CATEGORIAS -->
-    <section
-      class="categories"
-      aria-labelledby="categories-title"
-    >
+    <section class="categories" aria-labelledby="categories-title">
 
       <div class="categories-heading">
         <span class="section-kicker">ESCOLHA SUA AVENTURA</span>
-
         <h2 id="categories-title">
           QUAL É A SUA
           <span>VIBE?</span>
         </h2>
       </div>
-
 
       <div class="categories-grid">
 
@@ -500,7 +238,6 @@
           </span>
 
         </div>
-
 
         <div class="category-card category-blue">
 
@@ -534,12 +271,8 @@
 
     </section>
 
-
     <!-- NEWSLETTER -->
-    <section
-      class="newsletter"
-      aria-labelledby="newsletter-title"
-    >
+    <section class="newsletter" aria-labelledby="newsletter-title">
 
       <div class="newsletter-decoration" aria-hidden="true">
         <span>+</span>
@@ -561,44 +294,22 @@
         diretamente no seu e-mail.
       </p>
 
-      <form
-        class="newsletter-form"
-        novalidate
-      >
+      <form class="newsletter-form" novalidate>
 
-        <label
-          class="sr-only"
-          for="newsletter-email"
-        >
+        <label class="sr-only" for="newsletter-email">
           Seu melhor e-mail
         </label>
 
-        <input
-          type="email"
-          id="newsletter-email"
-          name="email"
-          placeholder="Seu melhor e-mail"
-          autocomplete="email"
-          required
-          aria-required="true"
-        >
+        <input type="email" id="newsletter-email" name="email" placeholder="Seu melhor e-mail" autocomplete="email" required aria-required="true">
 
-        <button
-          type="submit"
-          class="btn btn-subscribe"
-        >
+        <button type="submit" class="btn btn-subscribe">
           ASSINAR
           <span aria-hidden="true">→</span>
         </button>
 
       </form>
 
-      <p
-        class="newsletter-message"
-        id="newsletter-message"
-        role="status"
-        aria-live="polite"
-      ></p>
+      <p class="newsletter-message" id="newsletter-message" role="status" aria-live="polite"></p>
 
       <p class="disclaimer">
         SEM SPAM. APENAS BLOCOS ÉPICOS.
@@ -608,14 +319,10 @@
 
   </main>
 
-
   <!-- FOOTER -->
   <footer class="footer">
 
-    <nav
-      class="footer-links"
-      aria-label="Navegação do rodapé"
-    >
+    <nav class="footer-links" aria-label="Navegação do rodapé">
       <a href="/">INÍCIO</a>
       <a href="/produtos">PRODUTOS</a>
       <a href="/carrinho">CARRINHO</a>
@@ -627,17 +334,13 @@
       © 2026 BLOCZ. TODOS OS DIREITOS RESERVADOS.
     </p>
 
-    <div
-      class="social-icons"
-      aria-label="Redes sociais"
-    >
+    <div class="social-icons" aria-label="Redes sociais">
       <span aria-hidden="true">✦</span>
       <span aria-hidden="true">○</span>
       <span aria-hidden="true">×</span>
     </div>
 
   </footer>
-
 
   <script th:src="@{/js/cart.js}"></script>
   <script th:src="@{/js/header.js}"></script>

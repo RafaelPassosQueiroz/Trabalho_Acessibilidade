@@ -1,24 +1,57 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
 
 <header th:fragment="header" class="site-header">
-  <a th:href="@{/}" class="site-logo">
-    <img th:src="@{/img/logo.svg}" alt="blocz" class="site-logo-img">
-  </a>
 
-  <nav class="site-nav" aria-label="Navegação principal">
-    <a th:href="@{/}">Home</a>
-    <a th:href="@{/produtos}">Produtos</a>
-    <a th:href="@{/avatar}">Montar Avatar</a>
-    <a th:href="@{/diversao}">Diversão</a>
-    <a th:href="@{/carrinho}" class="cart-link">
-      Carrinho <span id="cart-count" class="cart-badge" aria-hidden="true"></span>
-      <span class="sr-only" id="cart-count-sr"></span>
+    <a th:href="@{/}"
+       class="site-logo"
+       aria-label="Blocz - página inicial">
+
+        <img th:src="@{/img/Logo.svg}"
+             alt="Logo Blocz">
+
     </a>
-  </nav>
 
-  <div id="auth-status" class="auth-status" aria-live="polite"></div>
+    <nav class="site-nav" aria-label="Navegação principal">
+
+        <a th:href="@{/}">
+            INÍCIO
+        </a>
+
+        <a th:href="@{/produtos}">
+            PRODUTOS
+        </a>
+
+        <a th:href="@{/lego}">
+            MONTE AVATAR
+        </a>
+
+        <a th:href="@{/diversao}">
+            DIVERSÃO
+        </a>
+
+        <a th:href="@{/carrinho}"
+           class="cart-link">
+
+            CARRINHO
+
+            <span id="cart-count"
+                  class="cart-badge"
+                  aria-hidden="true"></span>
+
+            <span id="cart-count-sr"
+                  class="sr-only"
+                  aria-live="polite"></span>
+
+        </a>
+
+    </nav>
+
+    <div id="auth-status" class="auth-status">
+        <!-- preenchido pelo header.js -->
+    </div>
+
 </header>
 
 </body>

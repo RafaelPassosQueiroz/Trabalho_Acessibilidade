@@ -7,6 +7,10 @@
 <script th:src="@{/js/theme.js}"></script><title>blocz — Produtos</title>
 <link rel="stylesheet" th:href="@{/css/header.css}">
 <link rel="stylesheet" th:href="@{/css/pages.css}">
+<!-- Links do Google Fonts (vão dentro da tag <head>) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -14,9 +18,11 @@
 
   <div th:replace="~{fragments/header :: header}"></div>
 
-  <main id="conteudo-principal" class="page">
-    <h1 style="margin-bottom:4px;">Todos os produtos</h1>
-    <p class="subtext" style="margin-bottom:20px;color:#6b6675;font-size:13px;">Filtre por categoria ou busque pelo nome.</p>
+  <main id="conteudo-principal" class="page produtos-page">
+    <section class="hero">
+      <h1>Todos os produtos</h1>
+      <p class="subtext">Filtre por categoria ou busque pelo nome.</p>
+    </section>
 
     <div class="filters">
       <label for="busca" class="sr-only">Buscar produto pelo nome</label>
