@@ -1,6 +1,7 @@
 package com.FunkoPop.MarketPlace.controller;
 
 import com.FunkoPop.MarketPlace.entity.Pedido;
+import com.FunkoPop.MarketPlace.entity.Produto;
 import com.FunkoPop.MarketPlace.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,11 @@ public class PedidoController {
     @PostMapping
     public Pedido save(@RequestBody Pedido order){
         return orderService.saveOrder(order);
+    }
+
+    @PostMapping("/batch")
+    public List<Pedido> saveAll(@RequestBody List<Pedido> pedidos){
+        return orderService.saveAll(pedidos);
     }
 
     @GetMapping
