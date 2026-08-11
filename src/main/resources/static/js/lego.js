@@ -1,12 +1,10 @@
 let cabecaAtual = 1;
 let torsoAtual = 1;
 let pernasAtual = 1;
-let acessorioAtual = 1;
 
 const totalCabecas = 24;
 const totalTorsos = 24;
 const totalPernas = 24;
-const totalAcessorios = 1;
 
 const cabecas = {
     1: { altura: 171 },
@@ -35,19 +33,13 @@ const cabecas = {
     24: { altura: 260 }
 };
 
-const acessorios = {
-    1: { x: 95, y: 80, altura: 130 }
-};
-
 const cabeca = document.getElementById("cabeca");
 const torso = document.getElementById("torso");
 const pernas = document.getElementById("pernas");
-const acessorio = document.getElementById("acessorio");
 
 let animandoCabeca = false;
 let animandoTorso = false;
 let animandoPernas = false;
-let animandoAcessorio = false;
 
 function aplicarPropriedades(elemento, propriedades = {}) {
     if (propriedades.altura !== undefined) elemento.style.height = propriedades.altura + "px";
@@ -132,19 +124,6 @@ function mudarPernas(direcao) {
     setTimeout(() => { animandoPernas = false; }, 550);
 }
 
-function mudarAcessorio(direcao) {
-    if (animandoAcessorio) return;
-    animandoAcessorio = true;
-
-    acessorioAtual += direcao;
-    if (acessorioAtual > totalAcessorios) acessorioAtual = 1;
-    if (acessorioAtual < 1) acessorioAtual = totalAcessorios;
-
-    trocarCarrossel(acessorio, `/lego/acessorio/${acessorioAtual}.svg`, direcao, acessorios[acessorioAtual]);
-
-    setTimeout(() => { animandoAcessorio = false; }, 550);
-}
-
 document.getElementById("prev-cabeca").addEventListener("click", () => mudarCabeca(-1));
 document.getElementById("next-cabeca").addEventListener("click", () => mudarCabeca(1));
 
@@ -154,14 +133,7 @@ document.getElementById("next-torso").addEventListener("click", () => mudarTorso
 document.getElementById("prev-pernas").addEventListener("click", () => mudarPernas(-1));
 document.getElementById("next-pernas").addEventListener("click", () => mudarPernas(1));
 
-document.getElementById("prev-acessorio").addEventListener("click", () => mudarAcessorio(-1));
-document.getElementById("next-acessorio").addEventListener("click", () => mudarAcessorio(1));
 
-// "Voltar" agora é um link <a> de verdade (mais acessível: funciona sem JS,
-// com clique do meio, botão direito "abrir em nova aba", etc). Nada a fazer aqui.
-
-// ===== SALVAR AVATAR =====
-// guarda os índices atuais em localStorage, pra usar no jogo (ou em qualquer outra tela).
 function mostrarToast(texto) {
     const toast = document.getElementById("toast");
     toast.textContent = texto;
@@ -173,14 +145,13 @@ document.getElementById("btn-salvar").addEventListener("click", () => {
     const avatar = {
         cabeca: cabecaAtual,
         torso: torsoAtual,
-        pernas: pernasAtual,
-        acessorio: acessorioAtual
+        pernas: pernasAtual
     };
     localStorage.setItem("blocz_avatar", JSON.stringify(avatar));
     mostrarToast("Avatar salvo! ✓");
 });
 
-// carrega o avatar salvo, se existir, ao abrir a tela
+
 (function carregarAvatarSalvo() {
     try {
         const salvo = JSON.parse(localStorage.getItem("blocz_avatar"));
@@ -189,14 +160,11 @@ document.getElementById("btn-salvar").addEventListener("click", () => {
         cabecaAtual = salvo.cabeca ?? 1;
         torsoAtual = salvo.torso ?? 1;
         pernasAtual = salvo.pernas ?? 1;
-        acessorioAtual = salvo.acessorio ?? 1;
 
         cabeca.src = `/lego/cabeca/${cabecaAtual}.svg`;
         aplicarPropriedades(cabeca, cabecas[cabecaAtual]);
         torso.src = `/lego/torso/${torsoAtual}.svg`;
         pernas.src = `/lego/pernas/${pernasAtual}.svg`;
-        acessorio.src = `/lego/acessorio/${acessorioAtual}.svg`;
-        aplicarPropriedades(acessorio, acessorios[acessorioAtual]);
     } catch (e) {
         console.warn("Sem avatar salvo ainda.");
     }
