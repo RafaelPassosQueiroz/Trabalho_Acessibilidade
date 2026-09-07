@@ -39,15 +39,15 @@
         </div>
         <div class="field">
           <label for="cartao-titular">Nome do titular</label>
-          <input type="text" id="cartao-titular" required>
+          <input type="text" id="cartao-titular" required autocomplete="cc-name">
         </div>
         <div class="field">
           <label for="cartao-numero">Número do cartão</label>
-          <input type="text" id="cartao-numero" inputmode="numeric" maxlength="19" placeholder="0000 0000 0000 0000" required>
+          <input type="text" id="cartao-numero" inputmode="numeric" maxlength="19" placeholder="0000 0000 0000 0000" required autocomplete="cc-number">
         </div>
         <div class="field">
           <label for="cartao-validade">Validade</label>
-          <input type="month" id="cartao-validade" required>
+          <input type="month" id="cartao-validade" required autocomplete="cc-exp">
         </div>
         <button type="submit" class="btn btn-primary btn-block">SALVAR CARTÃO</button>
       </form>
@@ -57,5 +57,6 @@
   <script th:src="@{/js/cart.js}"></script>
   <script th:src="@{/js/header.js}"></script>
   <script th:src="@{/js/cartao.js}"></script>
+  <div th:replace="~{fragments/vlibras :: vlibras}"></div>
 </body>
 </html>

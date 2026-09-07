@@ -232,8 +232,8 @@ a:hover{text-decoration:underline;}
 
 .msg{font-size:13px;padding:10px 14px;border-radius:10px;margin-bottom:16px;display:none;}
 .msg.show{display:block;}
-.msg-error{background:#fef2f2;color:var(--danger);}
-.msg-success{background:#f0fdf4;color:var(--success);}
+.msg-error{background:#fef2f2;color:#b91c1c;}
+.msg-success{background:#f0fdf4;color:#15803d;}
 
 /* PRODUTOS */
 .filters{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap;}

@@ -30,21 +30,21 @@
         <div class="field-row">
           <div class="field">
             <label for="end-cep">CEP</label>
-            <input type="text" id="end-cep" required>
+          <input type="text" id="end-cep" required autocomplete="postal-code">
           </div>
           <div class="field">
             <label for="end-estado">Estado</label>
-            <input type="text" id="end-estado" maxlength="2" placeholder="UF" required>
+          <input type="text" id="end-estado" maxlength="2" placeholder="UF" required autocomplete="address-level1">
           </div>
         </div>
         <div class="field">
           <label for="end-cidade">Cidade</label>
-          <input type="text" id="end-cidade" required>
+          <input type="text" id="end-cidade" required autocomplete="address-level2">
         </div>
         <div class="field-row">
           <div class="field">
             <label for="end-rua">Rua</label>
-            <input type="text" id="end-rua" required>
+          <input type="text" id="end-rua" required autocomplete="address-line1">
           </div>
           <div class="field">
             <label for="end-numero">Número</label>
@@ -53,7 +53,7 @@
         </div>
         <div class="field">
           <label for="end-logradouro">Bairro</label>
-          <input type="text" id="end-logradouro">
+          <input type="text" id="end-logradouro" autocomplete="address-level3">
         </div>
         <div class="field">
           <label for="end-complemento">Complemento</label>
@@ -67,5 +67,6 @@
   <script th:src="@{/js/cart.js}"></script>
   <script th:src="@{/js/header.js}"></script>
   <script th:src="@{/js/endereco.js}"></script>
+  <div th:replace="~{fragments/vlibras :: vlibras}"></div>
 </body>
 </html>

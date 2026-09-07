@@ -41,7 +41,7 @@ function renderizarProdutos(produtos) {
         <div class="product-thumb">
           ${p.estoque === 0 ? '<span class="out-of-stock">ESGOTADO</span>' : ""}
           ${p.imagem_url
-            ? `<img src="${p.imagem_url}" alt="" class="product-thumb-img">`
+            ? `<img src="${p.imagem_url}" alt="${p.nome}" class="product-thumb-img">`
             : '<span>🧩</span>'}
         </div>
       </a>
