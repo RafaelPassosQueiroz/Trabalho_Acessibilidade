@@ -30,11 +30,11 @@
         <p class="subtext">Entre com seu e-mail cadastrado.</p>
         <div class="field">
           <label for="login-email">E-mail</label>
-          <input type="email" id="login-email" required>
+          <input type="email" id="login-email" required autocomplete="email">
         </div>
         <div class="field">
           <label for="login-senha">Senha</label>
-          <input type="password" id="login-senha" required>
+          <input type="password" id="login-senha" required autocomplete="current-password">
         </div>
         <button type="submit" class="btn btn-primary btn-block">ENTRAR</button>
       </form>
@@ -45,21 +45,21 @@
         <p class="subtext">Leva menos de um minuto.</p>
         <div class="field">
           <label for="cad-nome">Nome completo</label>
-          <input type="text" id="cad-nome" required>
+          <input type="text" id="cad-nome" required autocomplete="name">
         </div>
         <div class="field-row">
           <div class="field">
             <label for="cad-email">E-mail</label>
-            <input type="email" id="cad-email" required>
+            <input type="email" id="cad-email" required autocomplete="email">
           </div>
           <div class="field">
             <label for="cad-senha">Senha</label>
-            <input type="password" id="cad-senha" required minlength="6">
+            <input type="password" id="cad-senha" required minlength="6" autocomplete="new-password">
           </div>
         </div>
         <div class="field">
           <label for="cad-telefone">Telefone</label>
-          <input type="tel" id="cad-telefone">
+          <input type="tel" id="cad-telefone" autocomplete="tel">
         </div>
         <div class="field-row">
           <div class="field">
@@ -68,7 +68,7 @@
           </div>
           <div class="field">
             <label for="cad-nascimento">Nascimento</label>
-            <input type="date" id="cad-nascimento">
+            <input type="date" id="cad-nascimento" autocomplete="bday">
           </div>
         </div>
         <button type="submit" class="btn btn-primary btn-block">CRIAR CONTA</button>
@@ -80,5 +80,6 @@
   <script th:src="@{/js/cart.js}"></script>
   <script th:src="@{/js/header.js}"></script>
   <script th:src="@{/js/auth.js}"></script>
+  <div th:replace="~{fragments/vlibras :: vlibras}"></div>
 </body>
 </html>
