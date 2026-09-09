@@ -13,6 +13,7 @@
     localStorage.setItem(CHAVE_TEMA, tema);
     if (manual) localStorage.setItem(CHAVE_MANUAL, "1");
     atualizarBotao(tema);
+    substituirLogo(tema); // <-- agora a logo é atualizada toda vez que o tema muda
   }
 
   function atualizarBotao(tema) {
@@ -43,8 +44,7 @@
         color: var(--dark-text);
       }
 
-      /* imagem de fundo animada da tela de produtos — escurece bastante
-         pra não brigar com os cards de vidro no modo escuro */
+
       html[data-theme="dark"] body::before{
         filter: brightness(.35) saturate(.8);
       }
@@ -58,7 +58,6 @@
         background: var(--dark-surface);
         border-bottom-color: var(--dark-border);
       }
-      html[data-theme="dark"] .site-logo-img{ filter: brightness(0) invert(1); }
       html[data-theme="dark"] .site-nav a{ color: var(--dark-text-soft); }
       html[data-theme="dark"] .site-nav a:hover{ color: #fff; }
       html[data-theme="dark"] .site-nav a.active{ color: var(--dark-purple); }
@@ -97,9 +96,7 @@
       }
       html[data-theme="dark"] .breadcrumb:hover{ color: var(--dark-purple); background: var(--dark-surface); }
 
-      /* .hero e .product-card são vidro translúcido (glass) sobre a imagem de fundo —
-         só na tela de produtos (.produtos-page); a home usa .hero com design próprio
-         (gradiente roxo), não pode ser pego por engano aqui */
+
       html[data-theme="dark"] .produtos-page .hero{
         background: rgba(32,27,43,.82);
         border-color: rgba(255,255,255,.08);
@@ -225,6 +222,7 @@
   document.addEventListener("DOMContentLoaded", () => {
     injetarEstilos();
     injetarBotao();
+    substituirLogo(document.documentElement.getAttribute("data-theme")); // usa o tema atual, não um valor fixo
   });
 
   window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
@@ -233,3 +231,15 @@
     }
   });
 })();
+
+
+function substituirLogo(tema) {
+  const logos = document.querySelectorAll(".site-logo-img");
+  const src = tema === "dark" ? "/img/download.png" : "/img/Logo.svg";
+
+  logos.forEach((logo) => {
+    logo.src = src;
+    // Remove qualquer srcset que possa sobrescrever a troca acima
+    logo.removeAttribute("srcset");
+  });
+}

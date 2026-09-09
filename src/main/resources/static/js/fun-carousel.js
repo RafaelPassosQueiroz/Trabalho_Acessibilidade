@@ -1,24 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
     const slides = [
         {
-            image: "/img/ChatGPT%20Image%207%20de%20ago.%20de%202026,%2013_04_49.png",
+            image: "/img/harry.jpg",
             alt: "Imagem do carrossel 1"
         },
         {
-            image: "/img/blocz-catch.jpg",
+            image: "/img/star.jpg",
+            alt: "Imagem do carrossel 1"
+        },
+        {
+            image: "/img/aang.jpg",
             alt: "Imagem do carrossel 2"
         },
         {
-            image: "/img/6d1aaa5b-9d15-4c4e-9d3b-f72663e79a1d.jpg",
+            image: "/img/percy.jpg",
             alt: "Imagem do carrossel 3"
-        },
-        {
-            image: "/img/blocz-catch.jpg",
-            alt: "Imagem do carrossel 4"
-        },
-        {
-            image: "/img/6d1aaa5b-9d15-4c4e-9d3b-f72663e79a1d.jpg",
-            alt: "Imagem do carrossel 5"
         }
     ];
 
